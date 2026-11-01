@@ -27,7 +27,7 @@ const catalog = JSON.parse(read('catalog.json'));
 const allJs = ['showroom-app.js', 'showroom-gallery.js', 'whitelabel-studio.js', 'audio-haptics.js'].map(read).join('\n');
 
 // 1. Catalog + thumbnails
-assert(Array.isArray(catalog) && catalog.length === 19, 'catalog has 19 templates');
+assert(Array.isArray(catalog) && catalog.length === 20, 'catalog has 20 templates');
 catalog.forEach(t => {
   const f = path.join(PUB, 'thumbs', t.id + '.jpg');
   const f2 = path.join(PUB, 'thumbs', t.id + '-440.jpg');

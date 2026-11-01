@@ -170,6 +170,35 @@
     ]
   },
   {
+    "id": "tpl-ecom-lego-pickmybuild",
+    "code": "1.7",
+    "title": "Precision Brick Supercars & Display Engineering Kits",
+    "category": "E-Commerce",
+    "vibe": "Exact Pickle UX, 9:16 Vertical Video Reels & Supercar Engineering",
+    "status": "live",
+    "customerUrl": "https://tpl-ecom-lego-pickmybuild.pages.dev/",
+    "adminUrl": "https://tpl-ecom-lego-pickmybuild.pages.dev/admin.html",
+    "defaultBrand": "PickMyBuild",
+    "defaultTagline": "Precision 1:14 and 1:8 scale brick supercars with functioning V8/V12 pistons, scissor doors, and museum stands.",
+    "defaultPrimary": "#E11D48",
+    "defaultDark": "#0F172A",
+    "defaultBg": "#FFFFFF",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Exact Pickle UX + Reels", "status": "live", "repo": "Adithyan-b-raj/tpl-ecom-lego-pickmybuild", "customerUrl": "https://tpl-ecom-lego-pickmybuild.pages.dev/", "adminUrl": "https://tpl-ecom-lego-pickmybuild.pages.dev/admin.html", "stack": "Cloudflare Pages + D1 SQLite + Custom Web Components" },
+      { "name": "Shopify", "label": "Shopify OS 2.0", "badge": "Pickle Sections", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-lego-pickmybuild", "stack": "Shopify Dawn OS 2.0 + Custom Pickle Web Components" },
+      { "name": "WooCommerce", "label": "WooCommerce Blocksy", "badge": "WP Child Theme", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-lego-pickmybuild", "stack": "WooCommerce + Supercar Matrix & Reel Player Plugin" },
+      { "name": "Self-Hosted Docker", "label": "Medusa.js Docker", "badge": "Self-Hosted VPS", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-lego-pickmybuild", "stack": "Medusa.js v2 + Docker Compose + Redis" }
+    ],
+    "features": [
+      "Exact 1:1 UI/UX Parity with Pickle Shopify Architecture",
+      "9:16 Vertical Video Reels with Muted Autoplay & Sound Toggle",
+      "11 Transparent Supercar Models (1:14 & 1:12 Display Scale)",
+      "Cash on Delivery (₹49 Fee) + Dynamic UPI with 12-Digit UTR",
+      "Store Owner Admin Ops with SKU Matrix & Immutable Stock Ledger"
+    ]
+  },
+  {
     "id": "tpl-land-saas-bento",
     "code": "2.1",
     "title": "AI / SaaS Product Launch (Dark Bento + ROI Calculator)",
