@@ -429,25 +429,26 @@
     "code": "5.1",
     "title": "Multi-Branch Inventory, Purchase Order & B2B Dealer ERP",
     "category": "Large ERP",
-    "vibe": "Enterprise Multi-Location Stock Ledger, GRN Workflow & Dealer Self-Service Portal",
+    "vibe": "Enterprise Multi-Location Stock Ledger, 3-Way Match Reconciliation & Dealer Portal",
     "status": "live",
     "customerUrl": "https://tpl-lerp-warehouse-erp.pages.dev/",
     "adminUrl": "https://tpl-lerp-warehouse-erp.pages.dev/admin.html",
     "defaultBrand": "NEXUS SUPPLY ERP",
-    "defaultTagline": "Multi-warehouse stock transfers, vendor PO -> GRN matching & dealer B2B portal.",
-    "defaultPrimary": "#4F46E5",
+    "defaultTagline": "Multi-warehouse stock transfers, 3-way PO-GRN-Invoice reconciliation & dealer B2B portal.",
+    "defaultPrimary": "#2563EB",
     "defaultDark": "#0F172A",
     "defaultBg": "#F8FAFC",
     "defaultWa": "919061902295",
     "tracks": [
-      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + Multi-Branch", "status": "live", "repo": "Adithyan-b-raj/tpl-lerp-warehouse-erp", "stack": "Cloudflare Pages + Hono + D1 Double-Entry Stock Ledger" },
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + 3-Way Match", "status": "live", "repo": "Adithyan-b-raj/tpl-lerp-warehouse-erp", "stack": "Cloudflare Pages + Functions + D1 3-Way Match & Multi-Branch Ledger" },
       { "name": "Self-Hosted Docker", "label": "ERPNext v15 / Odoo 17 Docker", "badge": "Enterprise VPS", "status": "live", "repo": "Adithyan-b-raj/tpl-lerp-warehouse-erp", "stack": "Frappe ERPNext v15 + Odoo 17 Community Docker Compose" }
     ],
     "features": [
-      "Multi-Warehouse Stock Ledger (Main Hub, Kochi, Calicut)",
-      "Purchase Requisition -> PO -> Goods Receipt Note (GRN)",
-      "Inter-Branch Stock Transfer with In-Transit Tracking",
-      "B2B Dealer Self-Service Ordering & Statement Portal"
+      "Multi-Warehouse Stock Ledger across 4 Facilities (Kochi, BLR, BOM, Calicut)",
+      "Interactive 3-Way Match Inspector (Agreed PO ↔ Inward GRN ↔ Vendor Invoice)",
+      "Automated Price & Quantity Variance Detection with Audit Hold Workflow",
+      "Inter-Branch Stock Transfer (STO) with 12-Digit Indian E-Way Bill Pass",
+      "B2B Dealer Credit Line Ledger & State-Aware GST Ordering Portal"
     ]
   },
   {
