@@ -1,75 +1,90 @@
 /* ==========================================================================
-   MOVEMENT X: OBSIDIAN SPATIAL GLASS & KINETIC HARDWARE LAB
+   AWWWARDS NOMINEES CURATION: EXACT WHITE / LIGHT EDITORIAL THEME
    Design Tokens & System Stylesheet
-   Benchmark: Awwwards Site of the Day / Apple Keynote Showcase / Linear
+   Benchmark: https://www.awwwards.com/websites/nominees/
+   Ultra-clean porcelain white & off-white canvas, pure white card surfaces,
+   Space Grotesk & Syne headings, refined neutral slate meta, solid black pills.
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap');
 
 :root {
-  /* Obsidian Void Atmosphere */
-  --bg-void: #05060A;
-  --bg-deep: #07090F;
-  --bg-panel: rgba(13, 16, 27, 0.72);
-  --bg-panel-solid: #0D101B;
-  --bg-card: rgba(18, 22, 36, 0.65);
-  --bg-card-hover: rgba(28, 34, 54, 0.85);
-  --bg-input: rgba(9, 11, 18, 0.85);
-  --bg-elevated: rgba(23, 28, 46, 0.9);
+  /* Ultra-Clean Porcelain White & Off-White Canvas */
+  --bg-void: #FAFAFA;
+  --bg-canvas: #FAFAFA;
+  --bg-deep: #F4F4F6;
+  --bg-panel: rgba(255, 255, 255, 0.94);
+  --bg-panel-solid: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FFFFFF;
+  --bg-input: #F9FAFB;
+  --bg-elevated: #FFFFFF;
+  --bg-subtle: #F4F4F5;
 
-  /* Hairline Gradient Borders */
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-focus: rgba(139, 92, 246, 0.6);
-  --border-glass: 1px solid rgba(255, 255, 255, 0.08);
-  --border-glow: 1px solid rgba(139, 92, 246, 0.35);
+  /* Subtle 1px Hairline Light-Gray Borders */
+  --border-subtle: #E5E5E5;
+  --border-card: #EBEBEB;
+  --border-light: #F0F0F0;
+  --border-focus: #111111;
+  --border-glass: 1px solid #EAEAEA;
+  --border-glow: 1px solid rgba(17, 17, 17, 0.15);
 
-  /* Accent Vibrancy Spectrum */
-  --violet-primary: #8B5CF6;
-  --violet-glow: rgba(139, 92, 246, 0.35);
-  --cyan-accent: #06B6D4;
-  --cyan-glow: rgba(6, 182, 212, 0.35);
+  /* Typography & Text Hierarchy */
+  --text-primary: #111111;
+  --text-heading: #171717;
+  --text-secondary: #555555;
+  --text-muted: #71717A;
+  --text-dim: #A1A1AA;
+  --text-inverse: #FFFFFF;
+
+  /* Tech Tag Chips */
+  --chip-bg: #F4F4F5;
+  --chip-color: #27272A;
+  --chip-border: #E4E4E7;
+
+  /* Refined Accent Colors */
   --emerald-signal: #10B981;
-  --emerald-glow: rgba(16, 185, 129, 0.35);
+  --emerald-glow: rgba(16, 185, 129, 0.15);
   --amber-signal: #F59E0B;
-  --amber-glow: rgba(245, 158, 11, 0.35);
-  --rose-signal: #F43F5E;
-  --lime-acid: #CCFF00;
-  --lime-glow: rgba(204, 255, 0, 0.3);
+  --amber-glow: rgba(245, 158, 11, 0.15);
+  --violet-primary: #8B5CF6;
+  --violet-glow: rgba(139, 92, 246, 0.15);
+  --cyan-accent: #0284C7;
+  --rose-signal: #E11D48;
 
-  /* Text & Contrast Hierarchy */
-  --text-primary: #F8FAFC;
-  --text-secondary: #94A3B8;
-  --text-muted: #64748B;
-  --text-dim: #475569;
-  --text-inverse: #05060A;
+  /* Solid Black Primary Buttons */
+  --btn-primary-bg: #111111;
+  --btn-primary-text: #FFFFFF;
+  --btn-primary-hover: #333333;
 
   /* Typography Stacks */
-  --font-display: 'Space Grotesk', -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-heading: 'Syne', 'Space Grotesk', sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Radii & Glass Effects */
+  /* Radii */
   --radius-xs: 6px;
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 18px;
+  --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-full: 9999px;
 
-  /* Elevation Shadows & Obsidian Depth */
-  --glass-blur: blur(28px) saturate(180%);
-  --glass-blur-sm: blur(14px) saturate(160%);
-  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.6);
-  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05);
-  --shadow-neon-violet: 0 0 30px rgba(139, 92, 246, 0.25), 0 0 60px rgba(139, 92, 246, 0.1);
-  --shadow-neon-cyan: 0 0 30px rgba(6, 182, 212, 0.25), 0 0 60px rgba(6, 182, 212, 0.1);
+  /* Soft Elevation & Awwwards Depth */
+  --glass-blur: blur(16px);
+  --glass-blur-sm: blur(10px);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.03);
+  --shadow-card-hover: 0 20px 40px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.08), 0 0 0 1px #E5E5E5;
+  --shadow-drawer: -10px 0 50px rgba(0, 0, 0, 0.08);
 
   /* Transition Physics */
   --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-spring: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Reset & Baseline */
@@ -92,23 +107,23 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Obsidian Scrollbar */
+/* Minimalist Clean Light Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(5, 6, 10, 0.6);
+  background: #F4F4F6;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: #D1D5DB;
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--violet-primary);
+  background: #9CA3AF;
 }
 
-/* Ambient Canvas Layer */
+/* Subtle Editorial Ambient Canvas Layer */
 #ambientCanvas {
   position: fixed;
   inset: 0;
@@ -116,41 +131,29 @@ html, body {
   height: 100vh;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.75;
+  opacity: 0.6;
 }
 
-/* Kinetic Shimmer & Glow Animations */
-@keyframes iridescentFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); }
-}
-
-@keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(1000%); }
-}
-
-@keyframes floatGentle {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
-}
-
+/* Editorial Badge & Shimmer Styles */
 .iridescent-text {
-  background: linear-gradient(135deg, #FFF 0%, #C4B5FD 35%, #06B6D4 70%, #A7F3D0 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: iridescentFlow 8s ease infinite;
+  color: var(--text-primary);
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
 .iridescent-badge {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.2));
-  border: 1px solid rgba(139, 92, 246, 0.4);
-  box-shadow: 0 0 16px rgba(139, 92, 246, 0.2);
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  color: var(--text-primary);
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+@keyframes scanline {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
 }

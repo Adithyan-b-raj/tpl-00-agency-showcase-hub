@@ -1,6 +1,6 @@
 /* ==========================================================================
-   SHOWROOM SPATIAL GALLERY & 3D GYRO PARALLAX ENGINE
-   Dynamic Ambient Canvas, 3D Gyro Tilt Physics, Dual View Engine,
+   AWWWARDS NOMINEES SHOWROOM: GALLERY & MICRO-INTERACTIONS ENGINE
+   Editorial Light Ambient Mesh, 3D Gyro Parallax, Dual View Engine,
    and ⌘K Spotlight Command Palette.
    ========================================================================== */
 
@@ -23,7 +23,7 @@ class ShowroomGalleryEngine {
   }
 
   /* -------------------------------------------------------------
-     1. DYNAMIC AMBIENT STARFIELD & PLASMA MESH (<1% CPU)
+     1. SUBTLE PORCELAIN AMBIENT MESH (<1% CPU)
      ------------------------------------------------------------- */
   setupAmbientCanvas() {
     this.ambientCanvas = document.getElementById('ambientCanvas');
@@ -57,18 +57,18 @@ class ShowroomGalleryEngine {
   initParticles() {
     const w = this.ambientCanvas.width;
     const h = this.ambientCanvas.height;
-    const count = Math.min(35, Math.floor((w * h) / 35000));
+    const count = Math.min(28, Math.floor((w * h) / 45000));
     this.particles = [];
 
     for (let i = 0; i < count; i++) {
       this.particles.push({
         x: Math.random() * w,
         y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        radius: Math.random() * 1.8 + 0.8,
-        alpha: Math.random() * 0.5 + 0.2,
-        color: i % 3 === 0 ? '139, 92, 246' : (i % 3 === 1 ? '6, 182, 212' : '16, 185, 129')
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        radius: Math.random() * 1.5 + 0.8,
+        alpha: Math.random() * 0.35 + 0.15,
+        color: i % 3 === 0 ? '16, 185, 129' : (i % 3 === 1 ? '139, 92, 246' : '17, 17, 17')
       });
     }
   }
@@ -85,14 +85,14 @@ class ShowroomGalleryEngine {
 
     ctx.clearRect(0, 0, w, h);
 
-    // Subtle pointer-following radial glow
+    // Subtle pointer-following light diffusion
     const grad = ctx.createRadialGradient(
       this.pointer.x, this.pointer.y, 10,
-      this.pointer.x, this.pointer.y, Math.max(w, h) * 0.55
+      this.pointer.x, this.pointer.y, Math.max(w, h) * 0.45
     );
-    grad.addColorStop(0, 'rgba(139, 92, 246, 0.045)');
-    grad.addColorStop(0.5, 'rgba(6, 182, 212, 0.02)');
-    grad.addColorStop(1, 'rgba(5, 6, 10, 0)');
+    grad.addColorStop(0, 'rgba(16, 185, 129, 0.03)');
+    grad.addColorStop(0.5, 'rgba(139, 92, 246, 0.015)');
+    grad.addColorStop(1, 'rgba(250, 250, 250, 0)');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
 
@@ -119,11 +119,11 @@ class ShowroomGalleryEngine {
         const dx = p.x - p2.x;
         const dy = p.y - p2.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 130) {
+        if (dist < 120) {
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `rgba(255, 255, 255, ${0.04 * (1 - dist / 130)})`;
+          ctx.strokeStyle = `rgba(0, 0, 0, ${0.03 * (1 - dist / 120)})`;
           ctx.stroke();
         }
       }
@@ -136,7 +136,7 @@ class ShowroomGalleryEngine {
      2. 3D GYRO PARALLAX TILT ON CARDS
      ------------------------------------------------------------- */
   bindParallaxCards() {
-    const cards = document.querySelectorAll('.bento-card');
+    const cards = document.querySelectorAll('.bento-card, .nominee-card');
     cards.forEach(card => {
       card.removeEventListener('pointermove', card._parallaxMove);
       card.removeEventListener('pointerleave', card._parallaxLeave);
@@ -147,16 +147,14 @@ class ShowroomGalleryEngine {
         const x = (e.clientX - rect.left) / rect.width;
         const y = (e.clientY - rect.top) / rect.height;
 
-        const rotX = ((y - 0.5) * -12).toFixed(2);
-        const rotY = ((x - 0.5) * 12).toFixed(2);
+        const rotX = ((y - 0.5) * -8).toFixed(2);
+        const rotY = ((x - 0.5) * 8).toFixed(2);
 
-        card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`;
-        card.style.setProperty('--mouse-x', `${(e.clientX - rect.left).toFixed(1)}px`);
-        card.style.setProperty('--mouse-y', `${(e.clientY - rect.top).toFixed(1)}px`);
+        card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px) scale3d(1.015, 1.015, 1.015)`;
       };
 
       const leave = () => {
-        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale3d(1, 1, 1)`;
       };
 
       card._parallaxMove = move;
@@ -273,7 +271,7 @@ class ShowroomGalleryEngine {
 
     // Quick Command Actions
     const quickActions = [
-      { id: 'cmd-exhibit', title: '🏛️ Switch to Spatial Exhibition Wall', action: () => { this.setViewMode('exhibition'); } },
+      { id: 'cmd-exhibit', title: '🏛️ Switch to Nominees Exhibition Wall', action: () => { this.setViewMode('exhibition'); } },
       { id: 'cmd-hardware', title: '🖥️ Switch to Virtual Hardware Lab', action: () => { this.setViewMode('hardware'); } },
       { id: 'cmd-desktop', title: '🖥️ Apple Studio Display 5K View (Desktop)', action: () => { this.setViewMode('hardware'); if (window.setDevice) window.setDevice('desktop'); } },
       { id: 'cmd-tablet', title: '📱 iPad Pro 13" View (Tablet)', action: () => { this.setViewMode('hardware'); if (window.setDevice) window.setDevice('tablet'); } },
@@ -298,31 +296,31 @@ class ShowroomGalleryEngine {
     let html = '';
 
     if (templateMatches.length > 0) {
-      html += `<div class="spotlight-section-heading">Vertical Templates (${templateMatches.length})</div>`;
+      html += `<div style="padding: 6px 12px; font-size: 11px; font-weight: 700; color: #71717A; text-transform: uppercase;">Vertical Nominees (${templateMatches.length})</div>`;
       templateMatches.forEach((t, idx) => {
         html += `
           <div class="spotlight-result-item ${idx === 0 && actionMatches.length === 0 ? 'selected' : ''}" data-type="template" data-id="${t.id}" onclick="showroomGallery.mountTemplateInStage('${t.id}'); showroomGallery.closeSpotlight();">
-            <span class="spotlight-code-badge">#${t.code}</span>
+            <span style="font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: #111; margin-right: 8px;">#${t.code}</span>
             <div style="flex:1;">
-              <div class="spotlight-item-title">${t.title}</div>
-              <div class="spotlight-item-sub">${t.category} • ${t.vibe}</div>
+              <div class="spotlight-result-title">${t.title}</div>
+              <div class="spotlight-result-sub">${t.category} • ${t.vibe}</div>
             </div>
-            <span class="spotlight-return-hint">Mount ↵</span>
+            <span style="font-family: var(--font-mono); font-size: 10px; color: #059669; font-weight: 600;">Mount ↵</span>
           </div>
         `;
       });
     }
 
     if (actionMatches.length > 0) {
-      html += `<div class="spotlight-section-heading">Hardware & Workspace Actions</div>`;
+      html += `<div style="padding: 6px 12px; font-size: 11px; font-weight: 700; color: #71717A; text-transform: uppercase; margin-top: 6px;">Hardware & Workspace Actions</div>`;
       actionMatches.forEach((a, idx) => {
         const isFirst = (templateMatches.length === 0 && idx === 0);
         html += `
           <div class="spotlight-result-item ${isFirst ? 'selected' : ''}" data-type="action" data-action="${a.id}" onclick="showroomGallery.executeAction('${a.id}'); showroomGallery.closeSpotlight();">
             <div style="flex:1;">
-              <div class="spotlight-item-title">${a.title}</div>
+              <div class="spotlight-result-title">${a.title}</div>
             </div>
-            <span class="spotlight-return-hint">Execute ↵</span>
+            <span style="font-family: var(--font-mono); font-size: 10px; color: #71717A;">Execute ↵</span>
           </div>
         `;
       });
@@ -367,11 +365,9 @@ class ShowroomGalleryEngine {
 
   setupGlobalShortcuts() {
     window.addEventListener('keydown', (e) => {
-      // Don't trigger if user is in an input or textarea
       const tag = (e.target.tagName || '').toLowerCase();
       const isInput = tag === 'input' || tag === 'textarea';
 
-      // ⌘K or Ctrl+K or '/'
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         this.isSpotlightOpen ? this.closeSpotlight() : this.openSpotlight();
@@ -384,7 +380,6 @@ class ShowroomGalleryEngine {
         return;
       }
 
-      // Spacebar toggles View Mode (Exhibition Wall vs Hardware Lab)
       if (e.code === 'Space' && !isInput && !this.isSpotlightOpen) {
         e.preventDefault();
         const nextMode = this.viewMode === 'exhibition' ? 'hardware' : 'exhibition';
@@ -392,7 +387,6 @@ class ShowroomGalleryEngine {
         return;
       }
 
-      // Escape closes modals/drawers
       if (e.key === 'Escape') {
         if (this.isSpotlightOpen) this.closeSpotlight();
         if (window.brandStudio) window.brandStudio.closeDrawer();

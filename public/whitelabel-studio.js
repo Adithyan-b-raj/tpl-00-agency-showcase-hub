@@ -425,7 +425,7 @@ class BrandChameleonStudio {
     // Dynamic QR generation
     const qrContainer = document.getElementById('studioQrBox');
     if (qrContainer) {
-      qrContainer.innerHTML = MiniQRCode.toSVG(custUrl, 150, '#FFFFFF', 'transparent');
+      qrContainer.innerHTML = MiniQRCode.toSVG(custUrl, 150, '#111111', 'transparent');
     }
 
     // WhatsApp Pitch copy formatting

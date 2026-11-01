@@ -3,32 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Agency Template Arsenal — Movement X Spatial Showroom & Hardware Lab</title>
-  <meta name="description" content="Next-Gen Obsidian Spatial Glass Showroom & Virtual Hardware Lab showcasing 18 production vertical web applications across 4 runnable stack tracks.">
+  <title>Agency Arsenal — Awwwards Nominees Showroom & Hardware Lab</title>
+  <meta name="description" content="Awwwards-curated showroom and virtual hardware lab showcasing 18 production vertical web applications across 4 runnable stack tracks.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Movement X Design System -->
+  <!-- Awwwards Nominees Exact White Theme System -->
   <link rel="stylesheet" href="/theme-tokens.css">
   <link rel="stylesheet" href="/hardware-frames.css">
   <link rel="stylesheet" href="/showroom-layout.css">
 </head>
 <body>
 
-  <!-- Dynamic Ambient Canvas Mesh & Starfield -->
+  <!-- Dynamic Ambient Canvas Mesh -->
   <canvas id="ambientCanvas"></canvas>
 
   <div class="app-container">
-    <!-- Top Command Navigation & Dual-Mode Header -->
+    <!-- Top Command Navigation & Awwwards Light Header -->
     <header class="top-command-nav">
       <a href="#" class="brand-cluster" onclick="showroomGallery.setViewMode('exhibition'); return false;">
         <div class="brand-icon-mark">A</div>
         <div class="brand-meta">
           <div class="brand-title-text">
-            <span>AGENCY TEMPLATE ARSENAL</span>
-            <span class="brand-edge-pill">18 VERTICALS • PRODUCTION EDGE</span>
+            <span>AGENCY ARSENAL</span>
+            <span class="brand-edge-pill">NOMINEES CURATION</span>
           </div>
-          <span class="brand-sub-text">Movement X Obsidian Spatial Hardware Lab</span>
+          <span class="brand-sub-text">18 Production Verticals • Dual-Persona Lab</span>
         </div>
       </a>
 
@@ -71,7 +71,7 @@
         <!-- Brand Chameleon Studio Trigger -->
         <button class="btn-cta-whitelabel" onclick="brandStudio.openDrawer()">
           <span>✨</span>
-          <span>Personalize for Prospect</span>
+          <span>Personalize for Client</span>
         </button>
       </div>
     </header>
@@ -80,7 +80,7 @@
     <div class="showroom-content-stage">
 
       <!-- =======================================================
-           VIEW 1: THE SPATIAL EXHIBITION WALL (3D BENTO GALLERY)
+           VIEW 1: THE AWWWARDS NOMINEES EXHIBITION WALL
            ======================================================= -->
       <section id="viewExhibition">
         <div class="exhibition-hero">
@@ -127,9 +127,9 @@
           </div>
         </div>
 
-        <!-- Fullscreen 3D Bento Grid -->
+        <!-- Fullscreen Awwwards Nominees 3-Column Grid -->
         <div class="bento-grid" id="exhibitionGrid">
-          <!-- Populated dynamically with 3D tilt cards -->
+          <!-- Populated dynamically with 16:10 visual cards -->
         </div>
       </section>
 
@@ -166,9 +166,9 @@
                 </button>
               </div>
 
-              <div id="activeWlBanner" style="display:none;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:#6EE7B7;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;align-items:center;gap:6px;">
+              <div id="activeWlBanner" style="display:none;background:#ECFDF5;border:1px solid #A7F3D0;color:#065F46;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;align-items:center;gap:6px;">
                 <span>🎨 Client: <strong id="activeWlLabel">Custom</strong></span>
-                <button onclick="resetWhiteLabel()" style="background:none;border:none;color:#FFF;cursor:pointer;font-size:11px;text-decoration:underline;">Reset</button>
+                <button onclick="resetWhiteLabel()" style="background:none;border:none;color:#047857;cursor:pointer;font-size:11px;text-decoration:underline;">Reset</button>
               </div>
             </div>
 
@@ -295,7 +295,7 @@
   </div>
 
   <!-- ===========================================================
-       BRAND CHAMELEON STUDIO DRAWER (SLIDING FROSTED GLASS)
+       BRAND CHAMELEON STUDIO DRAWER (SLIDING WHITE FROSTED GLASS)
        =========================================================== -->
   <div class="studio-drawer-overlay" id="brandStudioOverlay" onclick="brandStudio.closeDrawer()"></div>
   <aside class="studio-drawer" id="brandStudioDrawer">
@@ -308,7 +308,7 @@
 
     <div class="studio-drawer-body">
       <p style="font-size:12px;color:var(--text-secondary);line-height:1.5;">
-        Instantly personalize the active template (<strong id="studioTargetTplName" style="color:#FFF;">Boutique Store</strong>) for your prospect. Zero rebuild required — changes propagate in real time across the storefront, admin hub, and QR demo pass.
+        Instantly personalize the active template (<strong id="studioTargetTplName" style="color:#111;">Boutique Store</strong>) for your prospect. Zero rebuild required — changes propagate in real time across the storefront, admin hub, and QR demo pass.
       </p>
 
       <!-- Client Logo Auto-Extractor Section -->
@@ -343,14 +343,14 @@
       <div class="studio-form-section">
         <label class="studio-section-label">Primary Accent Color</label>
         <div style="display:flex;gap:8px;align-items:center;">
-          <input type="color" id="studioPrimaryPicker" value="#8B5CF6" onchange="brandStudio.applyColor(this.value, 'Custom Picker')" style="width:40px;height:38px;padding:2px;cursor:pointer;border-radius:4px;background:#000;border:1px solid var(--border-subtle);">
+          <input type="color" id="studioPrimaryPicker" value="#8B5CF6" onchange="brandStudio.applyColor(this.value, 'Custom Picker')" style="width:40px;height:38px;padding:2px;cursor:pointer;border-radius:4px;background:#FFF;border:1px solid #D1D5DB;">
           <input type="text" id="studioPrimary" class="studio-input" value="#8B5CF6" placeholder="#8B5CF6" oninput="brandStudio.applyColor(this.value, 'Text Input')">
         </div>
 
         <!-- 1-Tap Industry Color Presets -->
         <div class="preset-swatch-list">
           <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#111111', 'Minimalist Noir')">
-            <span class="preset-color-sample" style="background:#111111;border:1px solid #444;"></span> Noir
+            <span class="preset-color-sample" style="background:#111111;"></span> Noir
           </button>
           <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#800020', 'Royal Burgundy')">
             <span class="preset-color-sample" style="background:#800020;"></span> Burgundy
@@ -361,8 +361,8 @@
           <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#CCFF00', 'Cyber Neon')">
             <span class="preset-color-sample" style="background:#CCFF00;"></span> Acid Lime
           </button>
-          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#06B6D4', 'Horizon Blue')">
-            <span class="preset-color-sample" style="background:#06B6D4;"></span> Cyber Cyan
+          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#0284C7', 'Horizon Blue')">
+            <span class="preset-color-sample" style="background:#0284C7;"></span> Sky Blue
           </button>
           <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#D4AF37', 'Champagne Gold')">
             <span class="preset-color-sample" style="background:#D4AF37;"></span> Gold
@@ -382,7 +382,7 @@
         <div class="studio-qr-card">
           <div id="studioQrBox"></div>
           <div>
-            <div style="font-size:12px;font-weight:700;margin-bottom:4px;">Scan on Prospect's Phone</div>
+            <div style="font-size:12px;font-weight:700;margin-bottom:4px;color:#111;">Scan on Prospect's Phone</div>
             <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;">
               Instantly opens this personalized prototype on any iOS or Android phone camera.
             </div>
@@ -393,7 +393,7 @@
       <!-- Generated URL Output -->
       <div class="studio-form-section">
         <label class="studio-section-label">Prospect Storefront Magic Link</label>
-        <div id="studioGeneratedUrl" style="background:rgba(0,0,0,0.5);border:1px solid var(--border-subtle);padding:10px;border-radius:6px;font-family:var(--font-mono);font-size:11px;color:#A5B4FC;word-break:break-all;">
+        <div id="studioGeneratedUrl" style="background:#F9FAFB;border:1px solid #D1D5DB;padding:10px;border-radius:6px;font-family:var(--font-mono);font-size:11px;color:#1D4ED8;word-break:break-all;">
           https://ecomtemplatecloudflare.pages.dev/
         </div>
       </div>
@@ -402,7 +402,7 @@
     <!-- Drawer Actions Footer -->
     <div class="studio-drawer-footer">
       <div style="display:flex;gap:8px;">
-        <button class="btn-cta-whitelabel" style="flex:1;" onclick="brandStudio.applyToHardwareStage()">
+        <button class="btn-cta-whitelabel" style="flex:1;justify-content:center;" onclick="brandStudio.applyToHardwareStage()">
           🎨 Mount Into Live Stage
         </button>
         <button class="btn-icon-toggle" onclick="brandStudio.launchPitchDeckMode()" title="Open clean presentation view">
@@ -420,7 +420,7 @@
         <button class="btn-icon-toggle" style="flex:1;" onclick="brandStudio.copyWhatsAppPitch(this)">
           💬 Copy Pitch
         </button>
-        <a id="studioSendWaBtn" href="#" target="_blank" class="btn-icon-toggle" style="flex:1;border-color:var(--emerald-signal);color:#6EE7B7;justify-content:center;">
+        <a id="studioSendWaBtn" href="#" target="_blank" class="btn-icon-toggle" style="flex:1;border-color:var(--emerald-signal);color:#065F46;justify-content:center;text-decoration:none;">
           📲 Send WhatsApp
         </a>
       </div>
@@ -450,6 +450,7 @@
   <!-- Modular Scripts -->
   <script src="/audio-haptics.js"></script>
   <script src="/whitelabel-studio.js"></script>
+  <script src="/card-mockups.js"></script>
   <script src="/showroom-gallery.js"></script>
 
   <!-- Core Showroom Controller -->
@@ -550,7 +551,7 @@
       if (window.showroomAudio) window.showroomAudio.playTick();
     }
 
-    /* Exhibition Wall 3D Bento Grid Rendering */
+    /* Exhibition Wall Awwwards Nominees Grid Rendering */
     function renderExhibitionGrid() {
       const grid = document.getElementById('exhibitionGrid');
       if (!grid) return;
@@ -569,7 +570,7 @@
 
       if (filtered.length === 0) {
         grid.innerHTML = `
-          <div class="empty-search-state" style="grid-column:1/-1;padding:60px 24px;text-align:center;background:var(--bg-card);border:1px dashed var(--border-subtle);border-radius:var(--radius-lg);">
+          <div class="empty-search-state" style="grid-column:1/-1;padding:60px 24px;text-align:center;background:#FFFFFF;border:1px dashed var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);">
             <div style="font-size:32px;margin-bottom:12px;">🔍</div>
             <div style="font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--text-primary);margin-bottom:6px;">No Verticals Found</div>
             <div style="color:var(--text-secondary);font-size:13px;max-width:440px;margin:0 auto 16px;">No template matches "${q}" in category "${window.activeCategory}". Try clearing your filters.</div>
@@ -581,31 +582,35 @@
 
       grid.innerHTML = filtered.map(item => {
         const color = item.defaultPrimary || '#8B5CF6';
-        const trackBadges = (item.tracks || []).map(t => `<span class="stack-mini-badge">${t.name}</span>`).join('');
-        const features = (item.features || []).slice(0, 3).map(f => `<li class="card-feature-item">${f}</li>`).join('');
+        const trackBadges = (item.tracks || []).map(t => `<span class="stack-mini-badge tech-chip">${t.name}</span>`).join('');
+        const mockupHtml = window.CardMockups ? window.CardMockups.getMockup(item.code, item) : '';
 
         return `
-          <div class="bento-card" data-id="${item.id}" onclick="showroomGallery.mountTemplateInStage('${item.id}')">
-            <div class="card-top-row">
-              <span class="code-pill">#${item.code}</span>
-              <span class="cat-label-pill">${item.category}</span>
-              <span class="card-color-dot" style="background:${color};box-shadow:0 0 8px ${color};"></span>
+          <div class="nominee-card bento-card" data-id="${item.id}" onclick="showroomGallery.mountTemplateInStage('${item.id}')">
+            <div class="card-hero-frame">
+              <div class="card-mockup-wrap">
+                ${mockupHtml}
+              </div>
+              <div class="nominee-badge-pill">NOMINEE // #${item.code}</div>
+              <div class="card-color-dot" style="background:${color};"></div>
+              <div class="card-hover-actions" onclick="event.stopPropagation()">
+                <button class="btn-hover-mount btn-mount-stage" onclick="showroomGallery.mountTemplateInStage('${item.id}')">
+                  🖥️ Mount in Studio
+                </button>
+                <a href="${item.customerUrl}" target="_blank" class="btn-hover-demo btn-direct-link" title="Open direct demo">
+                  ↗ Live Demo
+                </a>
+              </div>
             </div>
-            <div class="card-title">${item.title}</div>
-            <div class="card-vibe">${item.vibe}</div>
-            <ul class="card-features-list">
-              ${features}
-            </ul>
-            <div class="card-stacks-row">
-              ${trackBadges}
-            </div>
-            <div class="card-actions-row" onclick="event.stopPropagation()">
-              <button class="btn-mount-stage" onclick="showroomGallery.mountTemplateInStage('${item.id}')">
-                🖥️ Mount in Stage
-              </button>
-              <a href="${item.customerUrl}" target="_blank" class="btn-direct-link" title="Open direct URL">
-                Direct ↗
-              </a>
+            <div class="card-footer-meta">
+              <div class="card-title-row">
+                <h3 class="card-nominee-title card-title">${item.title}</h3>
+                <span class="card-sla-pill">SLA: 11-min</span>
+              </div>
+              <p class="card-nominee-byline card-vibe">By Agency Arsenal • ${item.vibe}</p>
+              <div class="card-tech-chips card-stacks-row">
+                ${trackBadges}
+              </div>
             </div>
           </div>
         `;
@@ -632,7 +637,7 @@
         return `
           <div class="lab-tpl-item ${isActive ? 'active' : ''}" onclick="selectTemplate('${item.id}', true)">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px;">
-              <span style="font-family:var(--font-mono);font-size:10px;font-weight:700;color:var(--violet-primary);">#${item.code}</span>
+              <span style="font-family:var(--font-mono);font-size:10px;font-weight:700;color:#111;">#${item.code}</span>
               <span style="font-size:9px;color:var(--text-muted);">${item.category}</span>
             </div>
             <div class="lab-tpl-title">${item.title}</div>
@@ -769,7 +774,7 @@
       const badge = document.getElementById('browserStatusBadge');
       if (badge) {
         badge.innerHTML = window.activePersona === 'admin'
-          ? `<span class="pulse-dot" style="background:var(--violet-primary);box-shadow:0 0 6px var(--violet-primary);"></span><span>● OWNER ADMIN / POS VIEW</span>`
+          ? `<span class="pulse-dot" style="background:var(--violet-primary);"></span><span>● OWNER ADMIN / POS VIEW</span>`
           : `<span class="pulse-dot"></span><span>● CUSTOMER STOREFRONT VIEW</span>`;
       }
     }

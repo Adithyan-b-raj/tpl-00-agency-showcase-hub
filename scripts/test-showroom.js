@@ -1,7 +1,7 @@
 /* ==========================================================================
    SHOWROOM AUTOMATED VERIFICATION SUITE
-   Validates catalog data integrity, DOM landmarks, 3D tilt styles,
-   responsive chassis definitions, audio frequencies, and Brand Studio.
+   Validates Awwwards Nominees White Theme Tokens, 18 Visual Card Mockups,
+   DOM landmarks, responsive chassis, audio synthesizer, and Brand Studio.
    ========================================================================== */
 
 const fs = require('fs');
@@ -24,7 +24,7 @@ function assert(condition, message) {
 }
 
 console.log('\n======================================================');
-console.log('🏛️ BMad Test Suite: Next-Gen Spatial Agency Showroom');
+console.log('🏛️ BMad Test Suite: Awwwards Nominees White Showroom');
 console.log('======================================================\n');
 
 // 1. Catalog Integrity Test
@@ -78,6 +78,7 @@ assert(indexHtml.includes('/showroom-layout.css'), 'Links to /showroom-layout.cs
 // Script tags
 assert(indexHtml.includes('/audio-haptics.js'), 'Includes /audio-haptics.js');
 assert(indexHtml.includes('/whitelabel-studio.js'), 'Includes /whitelabel-studio.js');
+assert(indexHtml.includes('/card-mockups.js'), 'Includes /card-mockups.js (18 rich visual mockups)');
 assert(indexHtml.includes('/showroom-gallery.js'), 'Includes /showroom-gallery.js');
 
 // Critical Landmarks
@@ -87,7 +88,7 @@ assert(indexHtml.includes('id="btnViewExhibition"'), 'Includes Exhibition Wall v
 assert(indexHtml.includes('id="btnViewHardware"'), 'Includes Virtual Hardware Lab view toggle button');
 assert(indexHtml.includes('id="audioToggleBtn"'), 'Includes Web Audio toggle button');
 assert(indexHtml.includes('id="viewExhibition"'), 'Includes Spatial Exhibition Wall section');
-assert(indexHtml.includes('id="exhibitionGrid"'), 'Includes 3D Bento Exhibition Grid');
+assert(indexHtml.includes('id="exhibitionGrid"'), 'Includes Awwwards Nominees Exhibition Grid');
 assert(indexHtml.includes('id="viewHardware"'), 'Includes Virtual Hardware Lab section');
 assert(indexHtml.includes('id="singleHardwareChassis"'), 'Includes single device hardware chassis');
 assert(indexHtml.includes('id="splitStageContainer"'), 'Includes Dual-Screen Split Inspection Mode container');
@@ -95,7 +96,7 @@ assert(indexHtml.includes('id="splitCustomerFrame"') && indexHtml.includes('id="
 assert(indexHtml.includes('id="brandStudioDrawer"'), 'Includes Brand Chameleon Studio sliding drawer');
 assert(indexHtml.includes('id="spotlightModal"'), 'Includes ⌘K Spotlight Command Palette modal');
 
-// 3. Movement X Design Tokens & Hardware Frames CSS
+// 3. Awwwards Nominees White / Light Theme Design Tokens & CSS
 console.log('\n--- 3. Testing CSS Design Tokens & Hardware Chassis ---');
 const tokensPath = path.join(ROOT, 'public', 'theme-tokens.css');
 const framesPath = path.join(ROOT, 'public', 'hardware-frames.css');
@@ -106,9 +107,10 @@ assert(fs.existsSync(framesPath), 'public/hardware-frames.css exists');
 assert(fs.existsSync(layoutPath), 'public/showroom-layout.css exists');
 
 const tokensCss = fs.readFileSync(tokensPath, 'utf8');
-assert(tokensCss.includes('--bg-void: #05060A;'), 'Theme tokens define Obsidian Void canvas #05060A');
+assert(tokensCss.includes('--bg-void: #FAFAFA;') || tokensCss.includes('--bg-canvas: #FAFAFA;'), 'Theme tokens define Porcelain White canvas #FAFAFA');
+assert(tokensCss.includes('--bg-card: #FFFFFF;'), 'Theme tokens define Pure White card surfaces #FFFFFF');
+assert(tokensCss.includes('--border-subtle: #E5E5E5;'), 'Theme tokens define subtle 1px hairline border #E5E5E5');
 assert(tokensCss.includes('Space Grotesk') && tokensCss.includes('JetBrains Mono'), 'Theme tokens load Space Grotesk & JetBrains Mono fonts');
-assert(tokensCss.includes('--glass-blur: blur(28px) saturate(180%);'), 'Theme tokens define frosted obsidian glass filter');
 
 const framesCss = fs.readFileSync(framesPath, 'utf8');
 assert(framesCss.includes('.chassis-desktop'), 'Hardware frames define Apple Studio Display 5K (.chassis-desktop)');
@@ -118,12 +120,51 @@ assert(framesCss.includes('.dynamic-island'), 'Hardware frames define iPhone Dyn
 assert(framesCss.includes('.split-stage-container'), 'Hardware frames define Dual-Screen Split Inspection Mode');
 
 const layoutCss = fs.readFileSync(layoutPath, 'utf8');
-assert(layoutCss.includes('.bento-card'), 'Layout defines 3D Bento Card styling');
-assert(layoutCss.includes('.studio-drawer'), 'Layout defines Brand Chameleon frosted glass drawer');
+assert(layoutCss.includes('.nominee-card') || layoutCss.includes('.bento-card'), 'Layout defines Awwwards Nominee Card styling');
+assert(layoutCss.includes('.card-hero-frame'), 'Layout defines 16:10 visual preview hero frame');
+assert(layoutCss.includes('.nominee-badge-pill'), 'Layout defines floating NOMINEE honors badge');
+assert(layoutCss.includes('.studio-drawer'), 'Layout defines Brand Chameleon white frosted glass drawer');
 assert(layoutCss.includes('.spotlight-window'), 'Layout defines ⌘K Spotlight Command Palette window');
 
-// 4. Web Audio Synthesizer Engine
-console.log('\n--- 4. Testing Web Audio Synthesizer ---');
+// 4. 18 Rich Visual Card Mockups Verification
+console.log('\n--- 4. Testing 18 Rich Visual Card Mockups ---');
+const mockupsPath = path.join(ROOT, 'public', 'card-mockups.js');
+assert(fs.existsSync(mockupsPath), 'public/card-mockups.js exists');
+
+const mockupsJs = fs.readFileSync(mockupsPath, 'utf8');
+const expectedCodes = ['1.1', '1.2', '1.3', '1.4', '1.5', '2.1', '2.2', '2.3', '2.4', '3.1', '3.2', '3.3', '4.1', '4.2', '4.3', '4.4', '5.1', '5.2'];
+
+let allMockupsImplemented = true;
+expectedCodes.forEach(code => {
+  if (!mockupsJs.includes(`'${code}'`) && !mockupsJs.includes(`"${code}"`)) {
+    console.error(`Missing mockup handler for vertical #${code}`);
+    allMockupsImplemented = false;
+  }
+});
+assert(allMockupsImplemented, 'CardMockups engine implements mockups for all 18 vertical templates');
+
+// Test CardMockups execution directly in Node
+const mockGlobalWindow = {};
+eval(`
+  (function() {
+    let window = mockGlobalWindow;
+    ${mockupsJs}
+  })();
+`);
+assert(typeof mockGlobalWindow.CardMockups === 'object', 'CardMockups is exposed on window object');
+
+let allGeneratedValidHtml = true;
+catalog.forEach(item => {
+  const html = mockGlobalWindow.CardMockups.getMockup(item.code, item);
+  if (!html || !html.includes('vmk-wrap') || html.length < 50) {
+    console.error(`Mockup for #${item.code} did not return valid markup`);
+    allGeneratedValidHtml = false;
+  }
+});
+assert(allGeneratedValidHtml, 'All 18 verticals render non-empty rich vector/HTML mockups without wall of text');
+
+// 5. Web Audio Synthesizer Engine
+console.log('\n--- 5. Testing Web Audio Synthesizer ---');
 const audioPath = path.join(ROOT, 'public', 'audio-haptics.js');
 assert(fs.existsSync(audioPath), 'public/audio-haptics.js exists');
 
@@ -133,8 +174,8 @@ assert(audioJs.includes('660'), 'Synthesizes 660 Hz whoosh for template selectio
 assert(audioJs.includes('587') && audioJs.includes('880'), 'Synthesizes 587 Hz -> 880 Hz harmonic chime for whitelabel apply');
 assert(audioJs.includes('localStorage.getItem(\'showroom_audio_muted\')'), 'Persists mute preference in localStorage');
 
-// 5. Brand Chameleon & Pure-JS SVG QR Generator
-console.log('\n--- 5. Testing Brand Chameleon Studio & SVG QR Code ---');
+// 6. Brand Chameleon & Pure-JS SVG QR Generator
+console.log('\n--- 6. Testing Brand Chameleon Studio & SVG QR Code ---');
 const studioPath = path.join(ROOT, 'public', 'whitelabel-studio.js');
 assert(fs.existsSync(studioPath), 'public/whitelabel-studio.js exists');
 
@@ -151,8 +192,8 @@ eval(studioJs);
 const testSvg = MiniQRCode.toSVG('https://tpl-00-agency-showcase-hub.pages.dev', 120);
 assert(testSvg.startsWith('<svg') && testSvg.includes('</svg>'), 'MiniQRCode.toSVG generates valid SVG markup');
 
-// 6. Showroom Gallery Engine & Parallax
-console.log('\n--- 6. Testing Showroom Gallery & Parallax Engine ---');
+// 7. Showroom Gallery Engine & Parallax
+console.log('\n--- 7. Testing Showroom Gallery & Parallax Engine ---');
 const galleryPath = path.join(ROOT, 'public', 'showroom-gallery.js');
 assert(fs.existsSync(galleryPath), 'public/showroom-gallery.js exists');
 
@@ -162,8 +203,8 @@ assert(galleryJs.includes('bindParallaxCards'), '3D gyro parallax tilt configure
 assert(galleryJs.includes('setupSpotlightPalette'), '⌘K spotlight command palette configured');
 assert(galleryJs.includes('setViewMode'), 'Dual view mode toggling logic present');
 
-// 7. Edge-Case Review Remediation Verification
-console.log('\n--- 7. Testing Review Remediation Edge Cases ---');
+// 8. Edge-Case Review Remediation Verification
+console.log('\n--- 8. Testing Review Remediation Edge Cases ---');
 
 // Defect 1: Empty search & filter state
 assert(indexHtml.includes('class="empty-search-state"'), 'Defect 1: renderExhibitionGrid renders empty-search-state card when filtered.length === 0');
