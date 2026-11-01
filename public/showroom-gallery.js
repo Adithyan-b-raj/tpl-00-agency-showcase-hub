@@ -142,6 +142,7 @@ class ShowroomGalleryEngine {
       card.removeEventListener('pointerleave', card._parallaxLeave);
 
       const move = (e) => {
+        if (e.pointerType === 'touch') return;
         const rect = card.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width;
         const y = (e.clientY - rect.top) / rect.height;

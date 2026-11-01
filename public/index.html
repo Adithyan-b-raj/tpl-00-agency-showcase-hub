@@ -479,19 +479,39 @@
       if (params.get('primary')) window.wlParams.primary = params.get('primary');
       if (params.get('logo')) window.wlParams.logo = params.get('logo');
       if (params.get('view') === 'admin') window.activePersona = 'admin';
-      if (params.get('device')) setDevice(params.get('device'));
       if (params.get('mode') === 'hardware') showroomGallery.setViewMode('hardware');
 
       const requestedTpl = params.get('tpl');
       window.selectedTemplate = window.catalog.find(t => t.id === requestedTpl) || window.catalog[0];
+
+      if (params.get('device')) setDevice(params.get('device'));
 
       if (window.wlParams.brand) {
         const banner = document.getElementById('activeWlBanner');
         const label = document.getElementById('activeWlLabel');
         if (banner) banner.style.display = 'inline-flex';
         if (label) label.textContent = window.wlParams.brand;
-        const brandInput = document.getElementById('studioBrand');
-        if (brandInput) brandInput.value = window.wlParams.brand;
+      }
+
+      // Populate Brand Chameleon Studio inputs from window.wlParams
+      const brandInput = document.getElementById('studioBrand');
+      if (brandInput && window.wlParams.brand) brandInput.value = window.wlParams.brand;
+
+      const waInput = document.getElementById('studioWa');
+      if (waInput && window.wlParams.wa) waInput.value = window.wlParams.wa;
+
+      const taglineInput = document.getElementById('studioTagline');
+      if (taglineInput && window.wlParams.tagline) taglineInput.value = window.wlParams.tagline;
+
+      const logoInput = document.getElementById('studioLogoUrl');
+      if (logoInput && window.wlParams.logo) logoInput.value = window.wlParams.logo;
+
+      if (window.wlParams.primary) {
+        const hex = window.wlParams.primary.startsWith('#') ? window.wlParams.primary : '#' + window.wlParams.primary;
+        const primaryInput = document.getElementById('studioPrimary');
+        const pickerInput = document.getElementById('studioPrimaryPicker');
+        if (primaryInput) primaryInput.value = hex;
+        if (pickerInput) pickerInput.value = hex;
       }
 
       renderExhibitionGrid();
@@ -505,7 +525,12 @@
     function setCategory(cat, btnEl) {
       window.activeCategory = cat;
       document.querySelectorAll('.cat-pill-btn').forEach(btn => btn.classList.remove('active'));
-      if (btnEl) btnEl.classList.add('active');
+      if (btnEl) {
+        btnEl.classList.add('active');
+      } else {
+        const found = Array.from(document.querySelectorAll('.cat-pill-btn')).find(b => b.textContent.trim().startsWith(cat));
+        if (found) found.classList.add('active');
+      }
       renderExhibitionGrid();
       renderLabTemplateList();
       if (window.showroomAudio) window.showroomAudio.playTick();
@@ -515,7 +540,12 @@
     function setTrackFilter(track, btnEl) {
       window.activeTrackFilter = track;
       document.querySelectorAll('.track-filter-chip').forEach(btn => btn.classList.remove('active'));
-      if (btnEl) btnEl.classList.add('active');
+      if (btnEl) {
+        btnEl.classList.add('active');
+      } else {
+        const found = Array.from(document.querySelectorAll('.track-filter-chip')).find(b => b.textContent.includes(track));
+        if (found) found.classList.add('active');
+      }
       renderExhibitionGrid();
       if (window.showroomAudio) window.showroomAudio.playTick();
     }
@@ -536,6 +566,18 @@
           (item.features && item.features.some(f => f.toLowerCase().includes(q)));
         return matchCat && matchTrack && matchQuery;
       });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-search-state" style="grid-column:1/-1;padding:60px 24px;text-align:center;background:var(--bg-card);border:1px dashed var(--border-subtle);border-radius:var(--radius-lg);">
+            <div style="font-size:32px;margin-bottom:12px;">🔍</div>
+            <div style="font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--text-primary);margin-bottom:6px;">No Verticals Found</div>
+            <div style="color:var(--text-secondary);font-size:13px;max-width:440px;margin:0 auto 16px;">No template matches "${q}" in category "${window.activeCategory}". Try clearing your filters.</div>
+            <button class="btn-icon-toggle" onclick="document.getElementById('exhibitionSearchInput').value=''; setCategory('All'); setTrackFilter('All');">Reset All Filters</button>
+          </div>
+        `;
+        return;
+      }
 
       grid.innerHTML = filtered.map(item => {
         const color = item.defaultPrimary || '#8B5CF6';
@@ -705,6 +747,10 @@
 
     /* Single Stage Iframe Synchronizer */
     function updateStageIframe() {
+      if (window.activeDevice === 'split') {
+        updateSplitIframes();
+      }
+
       const baseUrl = getActiveBaseUrl(window.activePersona);
       const qs = buildWhiteLabelQueryString();
       const finalUrl = qs ? `${baseUrl}?${qs}` : baseUrl;
@@ -755,18 +801,30 @@
     function resetWhiteLabel() {
       window.wlParams = { brand: '', wa: '', tagline: '', primary: '', logo: '' };
       const banner = document.getElementById('activeWlBanner');
-      if (banner) banner.style.display = 'none';
+      if (banner) {
+        banner.style.display = 'none';
+        banner.classList.remove('show');
+      }
 
       ['studioBrand', 'studioWa', 'studioTagline', 'studioLogoUrl'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.value = '';
       });
 
+      const picker = document.getElementById('studioPrimaryPicker');
+      const primaryInput = document.getElementById('studioPrimary');
+      if (picker) picker.value = '#8B5CF6';
+      if (primaryInput) primaryInput.value = '#8B5CF6';
+
       const baseUrl = getActiveBaseUrl(window.activePersona);
       const frame = document.getElementById('previewFrame');
       if (frame) frame.src = baseUrl + '?reset_wl=1';
       const urlText = document.getElementById('browserUrlText');
       if (urlText) urlText.textContent = baseUrl;
+
+      if (window.activeDevice === 'split') {
+        updateSplitIframes();
+      }
 
       if (window.brandStudio) window.brandStudio.updateLiveOutputs();
       if (window.showroomAudio) window.showroomAudio.playDeviceSwitch();

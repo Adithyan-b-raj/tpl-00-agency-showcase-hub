@@ -448,13 +448,32 @@ class BrandChameleonStudio {
     const banner = document.getElementById('activeWlBanner');
     const label = document.getElementById('activeWlLabel');
     if (vals.brand) {
-      if (banner) banner.classList.add('show');
+      if (banner) {
+        banner.style.display = 'inline-flex';
+        banner.classList.add('show');
+      }
       if (label) label.textContent = vals.brand;
+    }
+
+    if (window.showroomGallery) {
+      window.showroomGallery.setViewMode('hardware');
     }
 
     if (window.updateStageIframe) window.updateStageIframe();
     if (window.showroomAudio) window.showroomAudio.playWhitelabelChime();
     this.closeDrawer();
+  }
+
+  resetWhiteLabel() {
+    if (typeof window.resetWhiteLabel === 'function') {
+      window.resetWhiteLabel();
+    } else {
+      const banner = document.getElementById('activeWlBanner');
+      if (banner) {
+        banner.style.display = 'none';
+        banner.classList.remove('show');
+      }
+    }
   }
 
   launchPitchDeckMode() {

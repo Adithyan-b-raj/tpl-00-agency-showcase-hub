@@ -162,6 +162,27 @@ assert(galleryJs.includes('bindParallaxCards'), '3D gyro parallax tilt configure
 assert(galleryJs.includes('setupSpotlightPalette'), '⌘K spotlight command palette configured');
 assert(galleryJs.includes('setViewMode'), 'Dual view mode toggling logic present');
 
+// 7. Edge-Case Review Remediation Verification
+console.log('\n--- 7. Testing Review Remediation Edge Cases ---');
+
+// Defect 1: Empty search & filter state
+assert(indexHtml.includes('class="empty-search-state"'), 'Defect 1: renderExhibitionGrid renders empty-search-state card when filtered.length === 0');
+assert(indexHtml.includes('No Verticals Found') && indexHtml.includes('Reset All Filters'), 'Defect 1: Empty state includes user-friendly title and Reset All Filters CTA');
+
+// Defect 2: Dual-Screen Split Mode Desynchronization
+assert(indexHtml.includes("if (window.activeDevice === 'split')") && indexHtml.includes("updateSplitIframes();"), 'Defect 2: updateStageIframe synchronizes split panes when activeDevice is split');
+assert(indexHtml.indexOf("window.selectedTemplate =") < indexHtml.indexOf("if (params.get('device')) setDevice"), 'Defect 2: initShowroom resolves selectedTemplate BEFORE setting device mode');
+const resetFnMatch = indexHtml.match(/function resetWhiteLabel\(\)[\s\S]*?\n    \}/);
+assert(resetFnMatch && resetFnMatch[0].includes("if (window.activeDevice === 'split')") && resetFnMatch[0].includes("updateSplitIframes()"), 'Defect 2: resetWhiteLabel synchronizes dual-screen split frames if activeDevice is split');
+
+// Defect 3: White-Label URL Parameter Propagation & Stage Mount Sync
+assert(indexHtml.includes('studioBrand') && indexHtml.includes('studioWa') && indexHtml.includes('studioTagline') && indexHtml.includes('studioPrimaryPicker'), 'Defect 3: initShowroom populates Brand Chameleon inputs (brand, wa, tagline, primary, picker) from URL parameters');
+assert(studioJs.includes("banner.style.display = 'inline-flex';") && studioJs.includes("showroomGallery.setViewMode('hardware')"), 'Defect 3: applyToHardwareStage sets activeWlBanner display to inline-flex and switches view to hardware lab');
+assert(resetFnMatch && resetFnMatch[0].includes("banner.style.display = 'none'"), 'Defect 3: resetWhiteLabel resets activeWlBanner display to none');
+
+// Defect 4: Mobile Touch Jitter Guard
+assert(galleryJs.includes("if (e.pointerType === 'touch') return;"), 'Defect 4: bindParallaxCards ignores touch events to prevent mobile rotation jitter');
+
 // Summary
 console.log('\n======================================================');
 console.log(`TOTAL TESTS: ${totalTests}`);
