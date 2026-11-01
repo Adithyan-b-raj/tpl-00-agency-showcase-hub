@@ -364,8 +364,8 @@ class BrandChameleonStudio {
           this.applyColor(hex, 'Logo Extracted');
           const statusBadge = document.getElementById('extractorStatus');
           if (statusBadge) {
-            statusBadge.innerHTML = `✓ Extracted primary <span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:${hex};vertical-align:middle;margin:0 4px;"></span> ${hex.toUpperCase()}`;
-            statusBadge.style.color = 'var(--emerald-signal)';
+            statusBadge.innerHTML = `Extracted <span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:${hex};vertical-align:middle;margin:0 4px;"></span> ${hex.toUpperCase()}`;
+            statusBadge.style.color = '#222';
           }
         }
       } catch (err) {
@@ -430,7 +430,7 @@ class BrandChameleonStudio {
 
     // WhatsApp Pitch copy formatting
     const brandName = vals.brand || (window.selectedTemplate ? window.selectedTemplate.defaultBrand : 'Your Brand');
-    const pitchText = `Hi! 👋\n\nHere is an exclusive interactive demo tailored specifically for *${brandName}*:\n\n🛍️ *Customer Storefront Prototype:* ${custUrl}\n⚙️ *Owner Admin & POS Command Center:* ${admUrl}\n\nTap to test live on your phone — sized products, order placement & POS counter!`;
+    const pitchText = `Hi,\n\nHere is an interactive demo tailored for *${brandName}*:\n\nCustomer storefront: ${custUrl}\nOwner admin and POS: ${admUrl}\n\nOpen it on your phone to try products, orders and the POS counter.`;
 
     const waBtn = document.getElementById('studioSendWaBtn');
     if (waBtn) {
@@ -496,19 +496,19 @@ class BrandChameleonStudio {
   copyStorefrontUrl(btn) {
     const url = document.getElementById('studioGeneratedUrl').dataset.custUrl || document.getElementById('studioGeneratedUrl').textContent;
     navigator.clipboard.writeText(url);
-    this.flashButton(btn, '✓ Storefront Copied!');
+    this.flashButton(btn, 'Copied');
   }
 
   copyAdminUrl(btn) {
     const url = document.getElementById('studioGeneratedUrl').dataset.admUrl;
     navigator.clipboard.writeText(url);
-    this.flashButton(btn, '✓ Admin URL Copied!');
+    this.flashButton(btn, 'Copied');
   }
 
   copyWhatsAppPitch(btn) {
     const pitch = document.getElementById('studioSendWaBtn').dataset.pitch;
     navigator.clipboard.writeText(pitch);
-    this.flashButton(btn, '✓ Pitch Text Copied!');
+    this.flashButton(btn, 'Copied');
   }
 
   flashButton(btn, tempText) {

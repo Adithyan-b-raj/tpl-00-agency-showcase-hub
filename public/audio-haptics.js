@@ -45,13 +45,13 @@ class ShowroomAudioEngine {
     const btn = document.getElementById('audioToggleBtn');
     if (!btn) return;
     if (this.muted) {
-      btn.innerHTML = `<span class="icon">🔇</span> <span class="label">Muted</span>`;
+      btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9l5 6M22 9l-5 6"/></svg>';
       btn.classList.add('is-muted');
-      btn.title = "Turn Audio Haptics ON";
+      btn.title = "Turn sound on";
     } else {
-      btn.innerHTML = `<span class="icon">🔊</span> <span class="label">Audio On</span>`;
+      btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 010 7M19 6a8.5 8.5 0 010 12"/></svg>';
       btn.classList.remove('is-muted');
-      btn.title = "Mute Audio Haptics";
+      btn.title = "Mute sound";
     }
   }
 

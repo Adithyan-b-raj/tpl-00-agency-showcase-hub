@@ -1,841 +1,227 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Agency Arsenal — Awwwards Nominees Showroom & Hardware Lab</title>
-  <meta name="description" content="Awwwards-curated showroom and virtual hardware lab showcasing 18 production vertical web applications across 4 runnable stack tracks.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agency Arsenal â€” Showroom</title>
+  <meta name="description" content="Browse 18 production web templates across e-commerce, landing pages, portfolios and ERP. Preview each one in the Hardware Lab as customer or owner.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Awwwards Nominees Exact White Theme System -->
-  <link rel="stylesheet" href="/theme-tokens.css">
-  <link rel="stylesheet" href="/hardware-frames.css">
-  <link rel="stylesheet" href="/showroom-layout.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/showroom.css">
 </head>
 <body>
 
-  <!-- Dynamic Ambient Canvas Mesh -->
-  <canvas id="ambientCanvas"></canvas>
+  <!-- ============ HEADER ============ -->
+  <header id="header">
+    <div class="inner">
+      <div class="header-main__container">
+        <a href="/" class="header-main__logo" onclick="showroomGallery.setViewMode('exhibition'); return false;" aria-label="Agency Arsenal"><i></i>Arsenal</a>
 
-  <div class="app-container">
-    <!-- Top Command Navigation & Awwwards Light Header -->
-    <header class="top-command-nav">
-      <a href="#" class="brand-cluster" onclick="showroomGallery.setViewMode('exhibition'); return false;">
-        <div class="brand-icon-mark">A</div>
-        <div class="brand-meta">
-          <div class="brand-title-text">
-            <span>AGENCY ARSENAL</span>
-            <span class="brand-edge-pill">NOMINEES CURATION</span>
-          </div>
-          <span class="brand-sub-text">18 Production Verticals • Dual-Persona Lab</span>
-        </div>
-      </a>
+        <nav class="nav-header-main" id="mainNav" aria-label="Main">
+          <ul class="nav-header-main__list">
+            <li><a href="#" class="nav-header-main__link is-active" id="btnViewExhibition" onclick="showroomGallery.setViewMode('exhibition'); return false;">Showroom</a></li>
+            <li><a href="#" class="nav-header-main__link" id="btnViewHardware" onclick="showroomGallery.setViewMode('hardware'); return false;">Hardware Lab</a></li>
+            <li><a href="#" class="nav-header-main__link" id="btnPersonalize" onclick="brandStudio.openDrawer(); return false;">Personalize</a></li>
+          </ul>
+        </nav>
 
-      <!-- Center: View Mode Toggle & Category Filter Pills -->
-      <div class="header-center-hub">
-        <div class="view-mode-toggle">
-          <button class="view-mode-btn active" id="btnViewExhibition" onclick="showroomGallery.setViewMode('exhibition')">
-            🏛️ Exhibition Wall
+        <div class="header-main__right">
+          <button class="header-main__ico" onclick="showroomGallery.openSpotlight()" aria-label="Search" title="Search (Ctrl K)">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
           </button>
-          <button class="view-mode-btn" id="btnViewHardware" onclick="showroomGallery.setViewMode('hardware')">
-            🖥️ Virtual Hardware Lab
-          </button>
+          <button class="header-main__ico" id="audioToggleBtn" onclick="showroomAudio.toggleMute()" aria-label="Toggle sound" title="Toggle sound"></button>
         </div>
-
-        <div class="category-pills-bar" id="topCategoryPills">
-          <button class="cat-pill-btn active" onclick="setCategory('All', this)">All <span class="cat-counter" id="countAll">18</span></button>
-          <button class="cat-pill-btn" onclick="setCategory('E-Commerce', this)">🛍️ E-Commerce <span class="cat-counter">5</span></button>
-          <button class="cat-pill-btn" onclick="setCategory('Landing Page', this)">🚀 Landing Pages <span class="cat-counter">4</span></button>
-          <button class="cat-pill-btn" onclick="setCategory('Portfolio', this)">🎨 Portfolios <span class="cat-counter">3</span></button>
-          <button class="cat-pill-btn" onclick="setCategory('Small ERP', this)">🧾 Small ERP <span class="cat-counter">4</span></button>
-          <button class="cat-pill-btn" onclick="setCategory('Large ERP', this)">🏢 Large ERP <span class="cat-counter">2</span></button>
-        </div>
-      </div>
-
-      <!-- Right Header Actions Cluster -->
-      <div class="header-actions">
-        <!-- Audio Haptic Sound FX Toggle -->
-        <button class="btn-icon-toggle" id="audioToggleBtn" onclick="showroomAudio.toggleMute()" title="Toggle Web Audio Haptics">
-          <span class="icon">🔊</span>
-          <span class="label">Audio On</span>
-        </button>
-
-        <!-- ⌘K Search Command Palette Button -->
-        <button class="btn-spotlight-cmd" onclick="showroomGallery.openSpotlight()" title="Press ⌘K or / to search">
-          <span>🔍</span>
-          <span>Search</span>
-          <span class="kbd-badge">⌘K</span>
-        </button>
-
-        <!-- Brand Chameleon Studio Trigger -->
-        <button class="btn-cta-whitelabel" onclick="brandStudio.openDrawer()">
-          <span>✨</span>
-          <span>Personalize for Client</span>
+        <button class="header-main__ico header-main__hamburger" id="hamburgerBtn" onclick="toggleMobileNav()" aria-label="Menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></svg>
         </button>
       </div>
-    </header>
-
-    <!-- Main Dual-View Workspace -->
-    <div class="showroom-content-stage">
-
-      <!-- =======================================================
-           VIEW 1: THE AWWWARDS NOMINEES EXHIBITION WALL
-           ======================================================= -->
-      <section id="viewExhibition">
-        <div class="exhibition-hero">
-          <!-- Live Telemetry Status Strip -->
-          <div class="hero-telemetry-strip">
-            <div class="telemetry-item">
-              <span class="pulse-dot"></span>
-              <span>Edge Status: <strong>12ms • Cloudflare V8 Edge</strong></span>
-            </div>
-            <div class="telemetry-item">
-              <span>Verticals: <strong>18 Production Ready</strong></span>
-            </div>
-            <div class="telemetry-item">
-              <span>Stack Tracks: <strong>4 Stacks per Vertical</strong></span>
-            </div>
-            <div class="telemetry-item">
-              <span>Baseline Run Cost: <strong style="color:var(--emerald-signal);">$0 / mo Free Tier</strong></span>
-            </div>
-          </div>
-
-          <!-- Hero Main Title -->
-          <div class="hero-main-banner">
-            <div>
-              <h1 class="hero-heading iridescent-text">Production Template Arsenal</h1>
-              <p class="hero-subheading">
-                Explore 18 hand-crafted, production-grade vertical web applications with integrated customer storefronts and owner admin POS command centers. Click any vertical to mount into the 3D Virtual Hardware Lab.
-              </p>
-            </div>
-          </div>
-
-          <!-- Bento Controls: Search & Stack Filter Chips -->
-          <div class="bento-controls-bar">
-            <div class="search-input-wrap">
-              <span class="search-icon-svg">🔍</span>
-              <input type="text" id="exhibitionSearchInput" class="search-input-field" placeholder="Fuzzy filter 18 verticals (POS, kurthi, skincare, real estate, HRMS, dental...)" oninput="renderExhibitionGrid()">
-            </div>
-            <div class="track-chips-filter" id="exhibitionTrackChips">
-              <button class="track-filter-chip active" onclick="setTrackFilter('All', this)">All Tracks</button>
-              <button class="track-filter-chip" onclick="setTrackFilter('Cloudflare Edge', this)">⚡ Cloudflare $0</button>
-              <button class="track-filter-chip" onclick="setTrackFilter('WooCommerce', this)">🟣 WooCommerce</button>
-              <button class="track-filter-chip" onclick="setTrackFilter('Shopify', this)">🟢 Shopify</button>
-              <button class="track-filter-chip" onclick="setTrackFilter('Self-Hosted Docker', this)">🐳 Docker VPS</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Fullscreen Awwwards Nominees 3-Column Grid -->
-        <div class="bento-grid" id="exhibitionGrid">
-          <!-- Populated dynamically with 16:10 visual cards -->
-        </div>
-      </section>
-
-      <!-- =======================================================
-           VIEW 2: THE VIRTUAL HARDWARE LAB (DEVICE STAGE PREVIEW)
-           ======================================================= -->
-      <section id="viewHardware">
-        <!-- Collapsible Left Catalog Sidebar -->
-        <aside class="lab-catalog-drawer" id="labCatalogDrawer">
-          <div class="lab-drawer-header">
-            <span class="lab-drawer-title">VERTICAL ARSENAL (18)</span>
-            <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);" id="labDrawerCount">18 Active</span>
-          </div>
-          <div class="lab-drawer-search">
-            <input type="text" id="labSearchInput" class="search-input-field" placeholder="Search templates..." oninput="renderLabTemplateList()">
-          </div>
-          <div class="lab-template-list" id="labTemplateList">
-            <!-- Populated dynamically -->
-          </div>
-        </aside>
-
-        <!-- Right Device Preview Stage -->
-        <main class="lab-main-stage">
-          <!-- Stage Sub-Toolbar -->
-          <div class="lab-stage-toolbar">
-            <!-- Left: Persona Switcher & Active WL Banner -->
-            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-              <div class="persona-toggle-group">
-                <button class="persona-btn active" id="btnPersonaCustomer" onclick="setPersona('customer')">
-                  🛍️ Customer Storefront
-                </button>
-                <button class="persona-btn" id="btnPersonaAdmin" onclick="setPersona('admin')">
-                  ⚙️ Owner Admin / POS Hub
-                </button>
-              </div>
-
-              <div id="activeWlBanner" style="display:none;background:#ECFDF5;border:1px solid #A7F3D0;color:#065F46;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;align-items:center;gap:6px;">
-                <span>🎨 Client: <strong id="activeWlLabel">Custom</strong></span>
-                <button onclick="resetWhiteLabel()" style="background:none;border:none;color:#047857;cursor:pointer;font-size:11px;text-decoration:underline;">Reset</button>
-              </div>
-            </div>
-
-            <!-- Right: Device Viewport Selector -->
-            <div class="device-viewport-group">
-              <button class="device-btn active" id="btnDevDesktop" onclick="setDevice('desktop')" title="Apple Studio Display 5K">
-                🖥️ Studio Display
-              </button>
-              <button class="device-btn" id="btnDevTablet" onclick="setDevice('tablet')" title="iPad Pro 13">
-                📱 iPad Pro
-              </button>
-              <button class="device-btn" id="btnDevMobile" onclick="setDevice('mobile')" title="iPhone 16 Pro">
-                📲 iPhone 16 Pro
-              </button>
-              <button class="device-btn" id="btnDevSplit" onclick="setDevice('split')" title="Dual-Screen Split: Customer + Admin POS">
-                ⚡ Split Inspection
-              </button>
-              <button class="device-btn" id="btnDevFull" onclick="setDevice('full')" title="Direct Unbounded Viewport">
-                ⛶ Full
-              </button>
-            </div>
-          </div>
-
-          <!-- Stack Tracks Selector Bar -->
-          <div class="lab-stack-bar">
-            <div class="lab-stack-tabs" id="labStackTabs">
-              <!-- Dynamically populated per template -->
-            </div>
-            <div class="lab-stack-info" id="labStackInfo">
-              Stack: Cloudflare Pages + Hono + D1 SQLite
-            </div>
-          </div>
-
-          <!-- Stage Canvas Floor -->
-          <div class="stage-canvas-floor" id="stageCanvasFloor">
-
-            <!-- 1. Single Hardware Chassis (Desktop / Tablet / Mobile) -->
-            <div class="hardware-chassis chassis-desktop" id="singleHardwareChassis">
-              <!-- iPhone 16 Pro iOS Status Bar -->
-              <div class="ios-status-bar">
-                <span>9:41</span>
-                <div style="display:flex;align-items:center;gap:6px;">
-                  <span>5G</span>
-                  <span>📶</span>
-                  <span>100% 🔋</span>
-                </div>
-              </div>
-
-              <!-- iPhone Dynamic Island -->
-              <div class="dynamic-island-bar">
-                <div class="dynamic-island" title="iPhone 16 Pro Dynamic Island">
-                  <div class="island-camera"></div>
-                  <span class="island-activity">● LIVE RUNNER</span>
-                  <div class="island-sensor"></div>
-                </div>
-              </div>
-
-              <!-- Realistic Studio Browser Chrome -->
-              <div class="browser-chrome-bar">
-                <div class="browser-traffic-dots">
-                  <span class="browser-dot dot-red" onclick="window.location.reload()" title="Reload Showroom"></span>
-                  <span class="browser-dot dot-amber" onclick="setDevice('tablet')" title="Resize Chassis"></span>
-                  <span class="browser-dot dot-green" onclick="setDevice('full')" title="Toggle Fullscreen"></span>
-                </div>
-                <div class="browser-omnibar">
-                  <span class="browser-lock-icon">🔒</span>
-                  <span class="browser-url-text" id="browserUrlText">https://ecomtemplatecloudflare.pages.dev/</span>
-                </div>
-                <div class="browser-telemetry-badge" id="browserStatusBadge">
-                  <span class="pulse-dot"></span>
-                  <span>● CUSTOMER STOREFRONT VIEW</span>
-                </div>
-                <a id="labDirectLinkBtn" href="https://ecomtemplatecloudflare.pages.dev/" target="_blank" class="btn-icon-toggle" style="height:26px;padding:0 8px;font-size:11px;" title="Open in New Tab">
-                  ↗
-                </a>
-              </div>
-
-              <!-- Viewport Frame -->
-              <div class="chassis-viewport">
-                <iframe id="previewFrame" src="https://ecomtemplatecloudflare.pages.dev/" title="Hardware Stage Preview"></iframe>
-              </div>
-            </div>
-
-            <!-- 2. Dual-Screen Split Inspection Mode Container -->
-            <div class="split-stage-container" id="splitStageContainer">
-              <!-- Left Pane: Customer Storefront Frame -->
-              <div class="split-pane">
-                <div class="split-pane-header">
-                  <div class="split-pane-title">
-                    <span>🛍️ Customer Storefront</span>
-                    <span class="split-badge-customer">LIVE END-USER VIEW</span>
-                  </div>
-                  <a id="splitCustomerDirectLink" href="#" target="_blank" class="btn-icon-toggle" style="height:24px;padding:0 8px;font-size:10px;">
-                    ↗ Open
-                  </a>
-                </div>
-                <div class="split-frame-wrapper">
-                  <iframe id="splitCustomerFrame" src="about:blank" title="Customer View"></iframe>
-                </div>
-              </div>
-
-              <!-- Right Pane: Owner Admin / POS Hub Frame -->
-              <div class="split-pane">
-                <div class="split-pane-header">
-                  <div class="split-pane-title">
-                    <span>⚙️ Owner Admin & POS Hub</span>
-                    <span class="split-badge-admin">LIVE BACKOFFICE / REGISTER</span>
-                  </div>
-                  <a id="splitAdminDirectLink" href="#" target="_blank" class="btn-icon-toggle" style="height:24px;padding:0 8px;font-size:10px;">
-                    ↗ Open
-                  </a>
-                </div>
-                <div class="split-frame-wrapper">
-                  <iframe id="splitAdminFrame" src="about:blank" title="Owner Admin POS View"></iframe>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </main>
-      </section>
-
     </div>
-  </div>
+  </header>
 
-  <!-- ===========================================================
-       BRAND CHAMELEON STUDIO DRAWER (SLIDING WHITE FROSTED GLASS)
-       =========================================================== -->
+  <!-- ============ VIEW 1: SHOWROOM LISTING ============ -->
+  <section id="viewExhibition">
+    <div class="inner">
+      <div class="l-filters">
+        <div class="nav-filters">
+          <div class="nav-filters__overlay" onclick="closeFilterMenus()"></div>
+          <div class="nav-filters__container">
+            <div class="nav-filters__left">
+              <ul class="nav-filters__list" id="filterList">
+                <li>
+                  <button class="nav-filters__item" data-menu="category" aria-haspopup="true"><span id="lblCategory">Category</span><svg class="nav-filters__arrow" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4"/></svg></button>
+                  <div class="nav-filters__dropdown"><div class="nav-filters__sublist" id="menuCategory"></div></div>
+                </li>
+                <li>
+                  <button class="nav-filters__item" data-menu="track" aria-haspopup="true"><span id="lblTrack">Stack</span><svg class="nav-filters__arrow" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4"/></svg></button>
+                  <div class="nav-filters__dropdown"><div class="nav-filters__sublist" id="menuTrack"></div></div>
+                </li>
+                <li>
+                  <button class="nav-filters__item" data-menu="sort" aria-haspopup="true"><span id="lblSort">Sort</span><svg class="nav-filters__arrow" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4"/></svg></button>
+                  <div class="nav-filters__dropdown"><div class="nav-filters__sublist" id="menuSort"></div></div>
+                </li>
+              </ul>
+            </div>
+            <div class="nav-filters__right">
+              <button class="nav-filters__reset" id="filterReset" onclick="resetFilters()" hidden>Reset</button>
+              <div class="nav-filters__total"><span class="nav-filters__count" id="resultCount">18</span><span>Templates</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="grid-elements" id="exhibitionGrid"></ul>
+    </div>
+  </section>
+
+  <!-- ============ VIEW 2: HARDWARE LAB ============ -->
+  <section id="viewHardware">
+    <aside class="lab-catalog-drawer" id="labCatalogDrawer">
+      <div class="lab-drawer-header"><span>Templates</span><span id="labDrawerCount">18</span></div>
+      <div class="lab-drawer-search"><input type="text" id="labSearchInput" class="field" placeholder="Search templates" oninput="renderLabTemplateList()"></div>
+      <div class="lab-template-list" id="labTemplateList"></div>
+    </aside>
+
+    <main class="lab-main-stage">
+      <div class="lab-stage-toolbar">
+        <div class="toolbar-left">
+          <div class="seg">
+            <button class="active" id="btnPersonaCustomer" onclick="setPersona('customer')">Customer</button>
+            <button id="btnPersonaAdmin" onclick="setPersona('admin')">Owner Admin</button>
+          </div>
+          <div class="wl-banner" id="activeWlBanner"><span>Client: <strong id="activeWlLabel">Custom</strong></span><button onclick="resetWhiteLabel()">Reset</button></div>
+        </div>
+        <div class="seg" id="deviceSeg">
+          <button class="active" id="btnDevDesktop" onclick="setDevice('desktop')">Desktop</button>
+          <button id="btnDevTablet" onclick="setDevice('tablet')">Tablet</button>
+          <button id="btnDevMobile" onclick="setDevice('mobile')">Mobile</button>
+          <button id="btnDevSplit" onclick="setDevice('split')">Split</button>
+          <button id="btnDevFull" onclick="setDevice('full')">Full</button>
+        </div>
+      </div>
+
+      <div class="lab-stack-bar">
+        <div class="lab-stack-tabs" id="labStackTabs"></div>
+        <div class="lab-stack-info" id="labStackInfo"></div>
+      </div>
+
+      <div class="stage-canvas-floor" id="stageCanvasFloor">
+        <div class="hardware-chassis chassis-desktop" id="singleHardwareChassis">
+          <div class="browser-chrome-bar">
+            <div class="browser-omnibar"><span class="browser-url-text" id="browserUrlText"></span></div>
+            <span class="browser-badge" id="browserStatusBadge">Customer</span>
+            <a id="labDirectLinkBtn" href="#" target="_blank" rel="noopener" class="header-main__ico" style="width:28px;height:28px" title="Open in new tab" aria-label="Open in new tab">
+              <svg viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M7 17L17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+          <div class="chassis-viewport"><iframe id="previewFrame" src="about:blank" title="Template preview"></iframe></div>
+        </div>
+
+        <div class="split-stage-container" id="splitStageContainer">
+          <div class="split-pane">
+            <div class="split-pane-header"><span>Customer</span>
+              <a id="splitCustomerDirectLink" href="#" target="_blank" rel="noopener" class="header-main__ico" style="width:28px;height:28px" aria-label="Open customer view"><svg viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+            </div>
+            <div class="split-frame-wrapper"><iframe id="splitCustomerFrame" src="about:blank" title="Customer view"></iframe></div>
+          </div>
+          <div class="split-pane">
+            <div class="split-pane-header"><span>Owner Admin</span>
+              <a id="splitAdminDirectLink" href="#" target="_blank" rel="noopener" class="header-main__ico" style="width:28px;height:28px" aria-label="Open admin view"><svg viewBox="0 0 24 24" style="width:16px;height:16px"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+            </div>
+            <div class="split-frame-wrapper"><iframe id="splitAdminFrame" src="about:blank" title="Owner admin view"></iframe></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <!-- ============ BRAND CHAMELEON DRAWER ============ -->
   <div class="studio-drawer-overlay" id="brandStudioOverlay" onclick="brandStudio.closeDrawer()"></div>
-  <aside class="studio-drawer" id="brandStudioDrawer">
+  <aside class="studio-drawer" id="brandStudioDrawer" aria-label="Personalize">
     <div class="studio-drawer-header">
-      <div class="studio-drawer-title">
-        <span>✨ Brand Chameleon Studio</span>
-      </div>
-      <button class="btn-icon-toggle" onclick="brandStudio.closeDrawer()">✕</button>
+      <span>Personalize</span>
+      <button class="header-main__ico" onclick="brandStudio.closeDrawer()" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
-
     <div class="studio-drawer-body">
-      <p style="font-size:12px;color:var(--text-secondary);line-height:1.5;">
-        Instantly personalize the active template (<strong id="studioTargetTplName" style="color:#111;">Boutique Store</strong>) for your prospect. Zero rebuild required — changes propagate in real time across the storefront, admin hub, and QR demo pass.
-      </p>
+      <p>Rebrand <strong id="studioTargetTplName">Template</strong> for a prospect. Changes apply instantly to the storefront, admin and QR link.</p>
 
-      <!-- Client Logo Auto-Extractor Section -->
       <div class="studio-form-section">
-        <label class="studio-section-label">Prospect Logo & Automatic Palette Extractor</label>
-        <div style="display:flex;gap:8px;">
-          <input type="text" id="studioLogoUrl" class="studio-input" placeholder="Paste logo image URL (or select file below)">
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;margin-top:4px;">
-          <input type="file" id="studioLogoFile" accept="image/*" style="font-size:11px;color:var(--text-muted);">
-          <span id="extractorStatus" style="font-size:11px;font-family:var(--font-mono);color:var(--text-muted);"></span>
-        </div>
+        <label class="studio-section-label" for="studioLogoUrl">Logo and palette</label>
+        <input type="text" id="studioLogoUrl" class="studio-input" placeholder="Logo image URL">
+        <div class="studio-row"><input type="file" id="studioLogoFile" class="studio-file" accept="image/*"><span id="extractorStatus"></span></div>
       </div>
-
-      <!-- Business Identity Inputs -->
       <div class="studio-form-section">
-        <label class="studio-section-label">Prospect Brand Name</label>
-        <input type="text" id="studioBrand" class="studio-input" placeholder="e.g. Zara Kochi / Apex Dental / Nomad Brews" oninput="brandStudio.updateLiveOutputs()">
+        <label class="studio-section-label" for="studioBrand">Brand name</label>
+        <input type="text" id="studioBrand" class="studio-input" placeholder="e.g. Zara Kochi" oninput="brandStudio.updateLiveOutputs()">
       </div>
-
       <div class="studio-form-section">
-        <label class="studio-section-label">WhatsApp Number for Pitching</label>
+        <label class="studio-section-label" for="studioWa">WhatsApp number</label>
         <input type="text" id="studioWa" class="studio-input" placeholder="e.g. 919061902295" oninput="brandStudio.updateLiveOutputs()">
       </div>
-
       <div class="studio-form-section">
-        <label class="studio-section-label">Custom Hero Tagline</label>
-        <input type="text" id="studioTagline" class="studio-input" placeholder="e.g. Artisanal handlooms crafted in Panampilly Nagar" oninput="brandStudio.updateLiveOutputs()">
+        <label class="studio-section-label" for="studioTagline">Tagline</label>
+        <input type="text" id="studioTagline" class="studio-input" placeholder="Short tagline" oninput="brandStudio.updateLiveOutputs()">
       </div>
-
-      <!-- Color Palette Customizer & Presets -->
       <div class="studio-form-section">
-        <label class="studio-section-label">Primary Accent Color</label>
-        <div style="display:flex;gap:8px;align-items:center;">
-          <input type="color" id="studioPrimaryPicker" value="#8B5CF6" onchange="brandStudio.applyColor(this.value, 'Custom Picker')" style="width:40px;height:38px;padding:2px;cursor:pointer;border-radius:4px;background:#FFF;border:1px solid #D1D5DB;">
-          <input type="text" id="studioPrimary" class="studio-input" value="#8B5CF6" placeholder="#8B5CF6" oninput="brandStudio.applyColor(this.value, 'Text Input')">
+        <label class="studio-section-label" for="studioPrimary">Primary colour</label>
+        <div class="studio-row">
+          <input type="color" id="studioPrimaryPicker" class="studio-color" value="#222222" onchange="brandStudio.applyColor(this.value, 'Custom Picker')">
+          <input type="text" id="studioPrimary" class="studio-input" value="#222222" placeholder="#222222" oninput="brandStudio.applyColor(this.value, 'Text Input')">
         </div>
-
-        <!-- 1-Tap Industry Color Presets -->
         <div class="preset-swatch-list">
-          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#111111', 'Minimalist Noir')">
-            <span class="preset-color-sample" style="background:#111111;"></span> Noir
-          </button>
-          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#800020', 'Royal Burgundy')">
-            <span class="preset-color-sample" style="background:#800020;"></span> Burgundy
-          </button>
-          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#4A5D4E', 'Botanical Sage')">
-            <span class="preset-color-sample" style="background:#4A5D4E;"></span> Sage
-          </button>
-          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#CCFF00', 'Cyber Neon')">
-            <span class="preset-color-sample" style="background:#CCFF00;"></span> Acid Lime
-          </button>
-          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#0284C7', 'Horizon Blue')">
-            <span class="preset-color-sample" style="background:#0284C7;"></span> Sky Blue
-          </button>
-          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#D4AF37', 'Champagne Gold')">
-            <span class="preset-color-sample" style="background:#D4AF37;"></span> Gold
-          </button>
-          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#f76b6a', 'Kaka Coral')">
-            <span class="preset-color-sample" style="background:#f76b6a;"></span> Coral
-          </button>
-          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#8B5CF6', 'Electric Violet')">
-            <span class="preset-color-sample" style="background:#8B5CF6;"></span> Violet
-          </button>
+          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#111111', 'Noir')"><span class="preset-color-sample" style="background:#111111"></span>Noir</button>
+          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#800020', 'Burgundy')"><span class="preset-color-sample" style="background:#800020"></span>Burgundy</button>
+          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#4A5D4E', 'Sage')"><span class="preset-color-sample" style="background:#4A5D4E"></span>Sage</button>
+          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#CCFF00', 'Lime')"><span class="preset-color-sample" style="background:#CCFF00"></span>Lime</button>
+          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#0284C7', 'Sky')"><span class="preset-color-sample" style="background:#0284C7"></span>Sky</button>
+          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#D4AF37', 'Gold')"><span class="preset-color-sample" style="background:#D4AF37"></span>Gold</button>
+          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#f76b6a', 'Coral')"><span class="preset-color-sample" style="background:#f76b6a"></span>Coral</button>
+          <button class="preset-chip-btn" onclick="brandStudio.applyPreset('#8B5CF6', 'Violet')"><span class="preset-color-sample" style="background:#8B5CF6"></span>Violet</button>
         </div>
       </div>
-
-      <!-- Real-Time SVG QR Code Pass -->
       <div class="studio-form-section">
-        <label class="studio-section-label">Live Mobile Demo QR Pass (Instant Device Scanning)</label>
+        <span class="studio-section-label">Phone preview</span>
         <div class="studio-qr-card">
           <div id="studioQrBox"></div>
-          <div>
-            <div style="font-size:12px;font-weight:700;margin-bottom:4px;color:#111;">Scan on Prospect's Phone</div>
-            <div style="font-size:11px;color:var(--text-secondary);line-height:1.4;">
-              Instantly opens this personalized prototype on any iOS or Android phone camera.
-            </div>
-          </div>
+          <div><strong>Scan on a phone</strong><span>Opens this personalized prototype on any phone camera.</span></div>
         </div>
       </div>
-
-      <!-- Generated URL Output -->
       <div class="studio-form-section">
-        <label class="studio-section-label">Prospect Storefront Magic Link</label>
-        <div id="studioGeneratedUrl" style="background:#F9FAFB;border:1px solid #D1D5DB;padding:10px;border-radius:6px;font-family:var(--font-mono);font-size:11px;color:#1D4ED8;word-break:break-all;">
-          https://ecomtemplatecloudflare.pages.dev/
-        </div>
+        <span class="studio-section-label">Magic link</span>
+        <div id="studioGeneratedUrl" class="studio-url"></div>
       </div>
     </div>
-
-    <!-- Drawer Actions Footer -->
     <div class="studio-drawer-footer">
-      <div style="display:flex;gap:8px;">
-        <button class="btn-cta-whitelabel" style="flex:1;justify-content:center;" onclick="brandStudio.applyToHardwareStage()">
-          🎨 Mount Into Live Stage
-        </button>
-        <button class="btn-icon-toggle" onclick="brandStudio.launchPitchDeckMode()" title="Open clean presentation view">
-          🚀 Pitch Mode
-        </button>
+      <div class="row">
+        <button class="button button--dark" onclick="brandStudio.applyToHardwareStage()">Mount in Hardware Lab</button>
+        <button class="button button--outline" onclick="brandStudio.launchPitchDeckMode()">Pitch mode</button>
       </div>
-
-      <div style="display:flex;gap:6px;flex-wrap:wrap;">
-        <button class="btn-icon-toggle" style="flex:1;" onclick="brandStudio.copyStorefrontUrl(this)">
-          📋 Storefront Link
-        </button>
-        <button class="btn-icon-toggle" style="flex:1;" onclick="brandStudio.copyAdminUrl(this)">
-          ⚙️ Admin POS Link
-        </button>
-        <button class="btn-icon-toggle" style="flex:1;" onclick="brandStudio.copyWhatsAppPitch(this)">
-          💬 Copy Pitch
-        </button>
-        <a id="studioSendWaBtn" href="#" target="_blank" class="btn-icon-toggle" style="flex:1;border-color:var(--emerald-signal);color:#065F46;justify-content:center;text-decoration:none;">
-          📲 Send WhatsApp
-        </a>
+      <div class="row">
+        <button class="button button--outline" onclick="brandStudio.copyStorefrontUrl(this)">Storefront link</button>
+        <button class="button button--outline" onclick="brandStudio.copyAdminUrl(this)">Admin link</button>
+        <button class="button button--outline" onclick="brandStudio.copyWhatsAppPitch(this)">Copy pitch</button>
+        <a id="studioSendWaBtn" href="#" target="_blank" rel="noopener" class="button button--outline">Send WhatsApp</a>
       </div>
     </div>
   </aside>
 
-  <!-- ===========================================================
-       ⌘K SPOTLIGHT COMMAND PALETTE MODAL
-       =========================================================== -->
+  <!-- ============ SPOTLIGHT ============ -->
   <div class="spotlight-backdrop" id="spotlightModal" onclick="if(event.target===this) showroomGallery.closeSpotlight()">
     <div class="spotlight-window">
       <div class="spotlight-input-row">
-        <span style="font-size:16px;">🔍</span>
-        <input type="text" id="spotlightInput" class="spotlight-input" placeholder="Search 18 templates, stacks, or type a command...">
-        <button class="btn-icon-toggle" style="height:26px;padding:0 8px;font-size:11px;" onclick="showroomGallery.closeSpotlight()">ESC</button>
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="text" id="spotlightInput" class="spotlight-input" placeholder="Search templates or commands" autocomplete="off">
+        <button class="button button--outline" style="height:30px;padding-inline:10px;font-size:12px" onclick="showroomGallery.closeSpotlight()">Esc</button>
       </div>
-      <div class="spotlight-results-scroll" id="spotlightResults">
-        <!-- Rendered dynamically -->
-      </div>
-      <div class="spotlight-footer">
-        <div><span>↑↓</span> to navigate &nbsp;•&nbsp; <span>↵</span> to execute &nbsp;•&nbsp; <span>ESC</span> to close</div>
-        <div style="font-family:var(--font-mono);">Agency Hub v2.0</div>
-      </div>
+      <div class="spotlight-results-scroll" id="spotlightResults"></div>
+      <div class="spotlight-footer">Up/Down to navigate &nbsp;Â·&nbsp; Enter to open &nbsp;Â·&nbsp; Esc to close</div>
     </div>
   </div>
 
-  <!-- Modular Scripts -->
   <script src="/audio-haptics.js"></script>
   <script src="/whitelabel-studio.js"></script>
-  <script src="/card-mockups.js"></script>
   <script src="/showroom-gallery.js"></script>
-
-  <!-- Core Showroom Controller -->
-  <script>
-    window.catalog = [];
-    window.activeCategory = 'All';
-    window.activeTrackFilter = 'All';
-    window.selectedTemplate = null;
-    window.selectedTrackIndex = 0;
-    window.activePersona = 'customer'; // 'customer' | 'admin'
-    window.activeDevice = 'desktop';   // 'desktop' | 'tablet' | 'mobile' | 'split' | 'full'
-    window.wlParams = { brand: '', wa: '', tagline: '', primary: '', logo: '' };
-
-    async function initShowroom() {
-      try {
-        const res = await fetch('/catalog.json');
-        window.catalog = await res.json();
-      } catch (err) {
-        console.error('Failed to load /catalog.json', err);
-      }
-
-      // Check URL parameters
-      const params = new URLSearchParams(window.location.search);
-      if (params.get('brand')) window.wlParams.brand = params.get('brand');
-      if (params.get('wa')) window.wlParams.wa = params.get('wa');
-      if (params.get('tagline')) window.wlParams.tagline = params.get('tagline');
-      if (params.get('primary')) window.wlParams.primary = params.get('primary');
-      if (params.get('logo')) window.wlParams.logo = params.get('logo');
-      if (params.get('view') === 'admin') window.activePersona = 'admin';
-      if (params.get('mode') === 'hardware') showroomGallery.setViewMode('hardware');
-
-      const requestedTpl = params.get('tpl');
-      window.selectedTemplate = window.catalog.find(t => t.id === requestedTpl) || window.catalog[0];
-
-      if (params.get('device')) setDevice(params.get('device'));
-
-      if (window.wlParams.brand) {
-        const banner = document.getElementById('activeWlBanner');
-        const label = document.getElementById('activeWlLabel');
-        if (banner) banner.style.display = 'inline-flex';
-        if (label) label.textContent = window.wlParams.brand;
-      }
-
-      // Populate Brand Chameleon Studio inputs from window.wlParams
-      const brandInput = document.getElementById('studioBrand');
-      if (brandInput && window.wlParams.brand) brandInput.value = window.wlParams.brand;
-
-      const waInput = document.getElementById('studioWa');
-      if (waInput && window.wlParams.wa) waInput.value = window.wlParams.wa;
-
-      const taglineInput = document.getElementById('studioTagline');
-      if (taglineInput && window.wlParams.tagline) taglineInput.value = window.wlParams.tagline;
-
-      const logoInput = document.getElementById('studioLogoUrl');
-      if (logoInput && window.wlParams.logo) logoInput.value = window.wlParams.logo;
-
-      if (window.wlParams.primary) {
-        const hex = window.wlParams.primary.startsWith('#') ? window.wlParams.primary : '#' + window.wlParams.primary;
-        const primaryInput = document.getElementById('studioPrimary');
-        const pickerInput = document.getElementById('studioPrimaryPicker');
-        if (primaryInput) primaryInput.value = hex;
-        if (pickerInput) pickerInput.value = hex;
-      }
-
-      renderExhibitionGrid();
-      renderLabTemplateList();
-      if (window.selectedTemplate) {
-        selectTemplate(window.selectedTemplate.id, false);
-      }
-    }
-
-    /* Category Filtering */
-    function setCategory(cat, btnEl) {
-      window.activeCategory = cat;
-      document.querySelectorAll('.cat-pill-btn').forEach(btn => btn.classList.remove('active'));
-      if (btnEl) {
-        btnEl.classList.add('active');
-      } else {
-        const found = Array.from(document.querySelectorAll('.cat-pill-btn')).find(b => b.textContent.trim().startsWith(cat));
-        if (found) found.classList.add('active');
-      }
-      renderExhibitionGrid();
-      renderLabTemplateList();
-      if (window.showroomAudio) window.showroomAudio.playTick();
-    }
-
-    /* Stack Track Filtering */
-    function setTrackFilter(track, btnEl) {
-      window.activeTrackFilter = track;
-      document.querySelectorAll('.track-filter-chip').forEach(btn => btn.classList.remove('active'));
-      if (btnEl) {
-        btnEl.classList.add('active');
-      } else {
-        const found = Array.from(document.querySelectorAll('.track-filter-chip')).find(b => b.textContent.includes(track));
-        if (found) found.classList.add('active');
-      }
-      renderExhibitionGrid();
-      if (window.showroomAudio) window.showroomAudio.playTick();
-    }
-
-    /* Exhibition Wall Awwwards Nominees Grid Rendering */
-    function renderExhibitionGrid() {
-      const grid = document.getElementById('exhibitionGrid');
-      if (!grid) return;
-
-      const q = (document.getElementById('exhibitionSearchInput') ? document.getElementById('exhibitionSearchInput').value : '').toLowerCase().trim();
-      const filtered = window.catalog.filter(item => {
-        const matchCat = window.activeCategory === 'All' || item.category === window.activeCategory;
-        const matchTrack = window.activeTrackFilter === 'All' || (item.tracks && item.tracks.some(t => t.name === window.activeTrackFilter));
-        const matchQuery = !q ||
-          item.title.toLowerCase().includes(q) ||
-          item.vibe.toLowerCase().includes(q) ||
-          item.category.toLowerCase().includes(q) ||
-          (item.features && item.features.some(f => f.toLowerCase().includes(q)));
-        return matchCat && matchTrack && matchQuery;
-      });
-
-      if (filtered.length === 0) {
-        grid.innerHTML = `
-          <div class="empty-search-state" style="grid-column:1/-1;padding:60px 24px;text-align:center;background:#FFFFFF;border:1px dashed var(--border-subtle);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);">
-            <div style="font-size:32px;margin-bottom:12px;">🔍</div>
-            <div style="font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--text-primary);margin-bottom:6px;">No Verticals Found</div>
-            <div style="color:var(--text-secondary);font-size:13px;max-width:440px;margin:0 auto 16px;">No template matches "${q}" in category "${window.activeCategory}". Try clearing your filters.</div>
-            <button class="btn-icon-toggle" onclick="document.getElementById('exhibitionSearchInput').value=''; setCategory('All'); setTrackFilter('All');">Reset All Filters</button>
-          </div>
-        `;
-        return;
-      }
-
-      grid.innerHTML = filtered.map(item => {
-        const color = item.defaultPrimary || '#8B5CF6';
-        const trackBadges = (item.tracks || []).map(t => `<span class="stack-mini-badge tech-chip">${t.name}</span>`).join('');
-        const mockupHtml = window.CardMockups ? window.CardMockups.getMockup(item.code, item) : '';
-
-        return `
-          <div class="nominee-card bento-card" data-id="${item.id}" onclick="showroomGallery.mountTemplateInStage('${item.id}')">
-            <div class="card-hero-frame">
-              <div class="card-mockup-wrap">
-                ${mockupHtml}
-              </div>
-              <div class="nominee-badge-pill">NOMINEE // #${item.code}</div>
-              <div class="card-color-dot" style="background:${color};"></div>
-              <div class="card-hover-actions" onclick="event.stopPropagation()">
-                <button class="btn-hover-mount btn-mount-stage" onclick="showroomGallery.mountTemplateInStage('${item.id}')">
-                  🖥️ Mount in Studio
-                </button>
-                <a href="${item.customerUrl}" target="_blank" class="btn-hover-demo btn-direct-link" title="Open direct demo">
-                  ↗ Live Demo
-                </a>
-              </div>
-            </div>
-            <div class="card-footer-meta">
-              <div class="card-title-row">
-                <h3 class="card-nominee-title card-title">${item.title}</h3>
-                <span class="card-sla-pill">SLA: 11-min</span>
-              </div>
-              <p class="card-nominee-byline card-vibe">By Agency Arsenal • ${item.vibe}</p>
-              <div class="card-tech-chips card-stacks-row">
-                ${trackBadges}
-              </div>
-            </div>
-          </div>
-        `;
-      }).join('');
-
-      // Bind 3D gyro tilt
-      showroomGallery.bindParallaxCards();
-    }
-
-    /* Hardware Lab Left Catalog List */
-    function renderLabTemplateList() {
-      const listEl = document.getElementById('labTemplateList');
-      if (!listEl) return;
-
-      const q = (document.getElementById('labSearchInput') ? document.getElementById('labSearchInput').value : '').toLowerCase().trim();
-      const filtered = window.catalog.filter(item => {
-        const matchCat = window.activeCategory === 'All' || item.category === window.activeCategory;
-        const matchQuery = !q || item.title.toLowerCase().includes(q) || item.code.includes(q) || item.vibe.toLowerCase().includes(q);
-        return matchCat && matchQuery;
-      });
-
-      listEl.innerHTML = filtered.map(item => {
-        const isActive = window.selectedTemplate && window.selectedTemplate.id === item.id;
-        return `
-          <div class="lab-tpl-item ${isActive ? 'active' : ''}" onclick="selectTemplate('${item.id}', true)">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2px;">
-              <span style="font-family:var(--font-mono);font-size:10px;font-weight:700;color:#111;">#${item.code}</span>
-              <span style="font-size:9px;color:var(--text-muted);">${item.category}</span>
-            </div>
-            <div class="lab-tpl-title">${item.title}</div>
-            <div class="lab-tpl-sub">${item.vibe}</div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    /* Select Template */
-    function selectTemplate(tplId, resetTrack) {
-      const found = window.catalog.find(t => t.id === tplId);
-      if (!found) return;
-      window.selectedTemplate = found;
-      if (resetTrack) window.selectedTrackIndex = 0;
-
-      const titleEl = document.getElementById('studioTargetTplName');
-      if (titleEl) titleEl.textContent = found.title;
-
-      renderLabTemplateList();
-      renderStackTabs();
-      updateStageIframe();
-      if (window.brandStudio) window.brandStudio.updateLiveOutputs();
-    }
-
-    /* Stack Tabs inside Hardware Lab */
-    function renderStackTabs() {
-      const tabsEl = document.getElementById('labStackTabs');
-      if (!tabsEl || !window.selectedTemplate || !window.selectedTemplate.tracks) return;
-
-      tabsEl.innerHTML = window.selectedTemplate.tracks.map((tr, idx) => `
-        <button class="lab-stack-tab ${idx === window.selectedTrackIndex ? 'active' : ''}" onclick="selectTrack(${idx})">
-          <span>${tr.label}</span>
-          <span style="font-size:9px;opacity:0.75;">[${tr.badge}]</span>
-        </button>
-      `).join('');
-
-      const activeTrack = window.selectedTemplate.tracks[window.selectedTrackIndex] || window.selectedTemplate.tracks[0];
-      const infoEl = document.getElementById('labStackInfo');
-      if (infoEl && activeTrack) {
-        infoEl.textContent = `Stack: ${activeTrack.stack || activeTrack.label} • Repo: ${activeTrack.repo}`;
-      }
-    }
-
-    function selectTrack(idx) {
-      window.selectedTrackIndex = idx;
-      renderStackTabs();
-      updateStageIframe();
-      if (window.showroomAudio) window.showroomAudio.playTick();
-    }
-
-    /* Persona Switcher (Customer vs Admin POS) */
-    function setPersona(persona) {
-      window.activePersona = persona;
-      const btnCust = document.getElementById('btnPersonaCustomer');
-      const btnAdm = document.getElementById('btnPersonaAdmin');
-      if (btnCust) btnCust.classList.toggle('active', persona === 'customer');
-      if (btnAdm) btnAdm.classList.toggle('active', persona === 'admin');
-      updateStageIframe();
-      if (window.showroomAudio) window.showroomAudio.playDeviceSwitch();
-    }
-
-    /* Device Viewport Switcher */
-    function setDevice(device) {
-      window.activeDevice = device;
-      const chassis = document.getElementById('singleHardwareChassis');
-      const splitContainer = document.getElementById('splitStageContainer');
-
-      // Update button active state
-      ['Desktop', 'Tablet', 'Mobile', 'Split', 'Full'].forEach(d => {
-        const btn = document.getElementById('btnDev' + d);
-        if (btn) btn.classList.toggle('active', d.toLowerCase() === device);
-      });
-
-      if (device === 'split') {
-        if (chassis) chassis.style.display = 'none';
-        if (splitContainer) splitContainer.classList.add('active');
-        updateSplitIframes();
-      } else {
-        if (splitContainer) splitContainer.classList.remove('active');
-        if (chassis) {
-          chassis.style.display = 'flex';
-          chassis.className = 'hardware-chassis chassis-' + device;
-        }
-        updateStageIframe();
-      }
-
-      if (window.showroomAudio) window.showroomAudio.playDeviceSwitch();
-    }
-
-    /* White-Label Query String Helper */
-    function buildWhiteLabelQueryString() {
-      const qs = new URLSearchParams();
-      if (window.wlParams.brand) qs.set('brand', window.wlParams.brand);
-      if (window.wlParams.tagline) qs.set('tagline', window.wlParams.tagline);
-      if (window.wlParams.primary) qs.set('primary', window.wlParams.primary.replace(/^#/, ''));
-      if (window.wlParams.wa) qs.set('wa', window.wlParams.wa.replace(/[^0-9]/g, ''));
-      if (window.wlParams.logo) qs.set('logo', window.wlParams.logo);
-      return qs.toString();
-    }
-
-    /* Active Base URL Resolver */
-    function getActiveBaseUrl(forPersona) {
-      if (!window.selectedTemplate) return 'https://ecomtemplatecloudflare.pages.dev/';
-      const track = (window.selectedTemplate.tracks && window.selectedTemplate.tracks[window.selectedTrackIndex]) || {};
-      if (forPersona === 'admin') {
-        return track.adminUrl || window.selectedTemplate.adminUrl || 'https://ecomtemplatecloudflare.pages.dev/admin.html';
-      }
-      return track.customerUrl || window.selectedTemplate.customerUrl || 'https://ecomtemplatecloudflare.pages.dev/';
-    }
-    window.getActiveBaseUrl = getActiveBaseUrl;
-
-    /* Single Stage Iframe Synchronizer */
-    function updateStageIframe() {
-      if (window.activeDevice === 'split') {
-        updateSplitIframes();
-      }
-
-      const baseUrl = getActiveBaseUrl(window.activePersona);
-      const qs = buildWhiteLabelQueryString();
-      const finalUrl = qs ? `${baseUrl}?${qs}` : baseUrl;
-
-      const frame = document.getElementById('previewFrame');
-      if (frame && frame.src !== finalUrl) {
-        frame.src = finalUrl;
-      }
-
-      const urlText = document.getElementById('browserUrlText');
-      if (urlText) urlText.textContent = finalUrl;
-
-      const directBtn = document.getElementById('labDirectLinkBtn');
-      if (directBtn) directBtn.href = finalUrl;
-
-      const badge = document.getElementById('browserStatusBadge');
-      if (badge) {
-        badge.innerHTML = window.activePersona === 'admin'
-          ? `<span class="pulse-dot" style="background:var(--violet-primary);"></span><span>● OWNER ADMIN / POS VIEW</span>`
-          : `<span class="pulse-dot"></span><span>● CUSTOMER STOREFRONT VIEW</span>`;
-      }
-    }
-    window.updateStageIframe = updateStageIframe;
-
-    /* Dual-Screen Split Iframes Synchronizer */
-    function updateSplitIframes() {
-      const qs = buildWhiteLabelQueryString();
-
-      const custBase = getActiveBaseUrl('customer');
-      const admBase = getActiveBaseUrl('admin');
-
-      const custFinal = qs ? `${custBase}?${qs}` : custBase;
-      const admFinal = qs ? `${admBase}?${qs}` : admBase;
-
-      const custFrame = document.getElementById('splitCustomerFrame');
-      const admFrame = document.getElementById('splitAdminFrame');
-
-      if (custFrame && custFrame.src !== custFinal) custFrame.src = custFinal;
-      if (admFrame && admFrame.src !== admFinal) admFrame.src = admFinal;
-
-      const custDirect = document.getElementById('splitCustomerDirectLink');
-      const admDirect = document.getElementById('splitAdminDirectLink');
-
-      if (custDirect) custDirect.href = custFinal;
-      if (admDirect) admDirect.href = admFinal;
-    }
-
-    function resetWhiteLabel() {
-      window.wlParams = { brand: '', wa: '', tagline: '', primary: '', logo: '' };
-      const banner = document.getElementById('activeWlBanner');
-      if (banner) {
-        banner.style.display = 'none';
-        banner.classList.remove('show');
-      }
-
-      ['studioBrand', 'studioWa', 'studioTagline', 'studioLogoUrl'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.value = '';
-      });
-
-      const picker = document.getElementById('studioPrimaryPicker');
-      const primaryInput = document.getElementById('studioPrimary');
-      if (picker) picker.value = '#8B5CF6';
-      if (primaryInput) primaryInput.value = '#8B5CF6';
-
-      const baseUrl = getActiveBaseUrl(window.activePersona);
-      const frame = document.getElementById('previewFrame');
-      if (frame) frame.src = baseUrl + '?reset_wl=1';
-      const urlText = document.getElementById('browserUrlText');
-      if (urlText) urlText.textContent = baseUrl;
-
-      if (window.activeDevice === 'split') {
-        updateSplitIframes();
-      }
-
-      if (window.brandStudio) window.brandStudio.updateLiveOutputs();
-      if (window.showroomAudio) window.showroomAudio.playDeviceSwitch();
-    }
-
-    document.addEventListener('DOMContentLoaded', initShowroom);
-  </script>
+  <script src="/showroom-app.js"></script>
 </body>
 </html>
+
