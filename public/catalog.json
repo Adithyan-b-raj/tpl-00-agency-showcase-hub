@@ -141,6 +141,35 @@
     ]
   },
   {
+    "id": "tpl-ecom-apparel-northloom",
+    "code": "1.6",
+    "title": "Everyday Linen & Organic Cotton Apparel Store",
+    "category": "E-Commerce",
+    "vibe": "Movement S: Radical-Transparency Editorial Minimal",
+    "status": "live",
+    "customerUrl": "https://tpl-ecom-apparel-northloom.pages.dev/",
+    "adminUrl": "https://tpl-ecom-apparel-northloom.pages.dev/admin.html",
+    "defaultBrand": "NORTHLOOM",
+    "defaultTagline": "Plain, well-made linen and organic-cotton basics. Every price shown down to our margin.",
+    "defaultPrimary": "#1B1A17",
+    "defaultDark": "#1B1A17",
+    "defaultBg": "#F7F4EE",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Live Demo", "status": "live", "repo": "Adithyan-b-raj/tpl-ecom-apparel-northloom", "customerUrl": "https://tpl-ecom-apparel-northloom.pages.dev/", "adminUrl": "https://tpl-ecom-apparel-northloom.pages.dev/admin.html", "stack": "Cloudflare Pages + D1 SQLite + V8 Edge Functions" },
+      { "name": "WooCommerce", "label": "WooCommerce Headless", "badge": "WP REST API", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-apparel-northloom", "stack": "WooCommerce + Apparel Size Matrix + GST Split" },
+      { "name": "Shopify", "label": "Shopify OS 2.0", "badge": "Liquid Clean-Room", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-apparel-northloom", "stack": "Shopify OS 2.0 Editorial Swatch & Transparency Sections" },
+      { "name": "Self-Hosted Docker", "label": "Medusa.js Docker", "badge": "Self-Hosted VPS", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-apparel-northloom", "stack": "Medusa.js v2 + PostgreSQL + Docker Compose" }
+    ],
+    "features": [
+      "True Cost Radical Price Transparency Breakdown",
+      "Dynamic UPI QR + 30-Min Reservation + 12-Digit UTR Verification",
+      "Cash on Delivery (COD) with Pin Serviceability & ₹5,000 Cap",
+      "Indian Apparel GST Split (5% <= ₹2,500; 18% > ₹2,500)",
+      "Owner Admin Console with Order Lifecycles & Immutable Stock Ledger"
+    ]
+  },
+  {
     "id": "tpl-land-saas-bento",
     "code": "2.1",
     "title": "AI / SaaS Product Launch (Dark Bento + ROI Calculator)",
