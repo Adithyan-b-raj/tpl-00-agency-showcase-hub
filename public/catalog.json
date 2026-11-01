@@ -1,0 +1,479 @@
+[
+  {
+    "id": "tpl-ecom-boutique",
+    "code": "1.1",
+    "title": "Boutique & Ethnic Wear Store + In-Store POS",
+    "category": "E-Commerce",
+    "vibe": "Warm Editorial Sand & Coral (Kaka by Eliza Style)",
+    "status": "live",
+    "customerUrl": "https://ecomtemplatecloudflare.pages.dev/",
+    "adminUrl": "https://ecomtemplatecloudflare.pages.dev/admin.html",
+    "defaultBrand": "Kaka by Eliza",
+    "defaultTagline": "Discover pure cotton kurthis, chic peplum tops, and stylish dresses. Effortless style, made in Kerala.",
+    "defaultPrimary": "#f76b6a",
+    "defaultDark": "#161616",
+    "defaultBg": "#FFFDF9",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Live Demo", "status": "live", "repo": "Adithyan-b-raj/ecomtemplatecloudflare", "customerUrl": "https://ecomtemplatecloudflare.pages.dev/", "adminUrl": "https://ecomtemplatecloudflare.pages.dev/admin.html", "stack": "Cloudflare Pages + Hono + D1 SQLite + Cashfree UPI" },
+      { "name": "WooCommerce", "label": "WooCommerce Blocksy", "badge": "WP Child Theme", "status": "live", "repo": "Adithyan-b-raj/ecomtemplateblosky", "customerUrl": "https://ecomtemplatecloudflare.pages.dev/", "adminUrl": "https://ecomtemplatecloudflare.pages.dev/admin.html", "stack": "WordPress + WooCommerce + Blocksy Child + Boutique POS Plugin" },
+      { "name": "Shopify", "label": "Shopify OS 2.0", "badge": "Liquid + JSON", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-boutique-shopify", "stack": "Shopify Dawn OS 2.0 + Custom Urgency & Swatch Sections" },
+      { "name": "Self-Hosted Docker", "label": "Medusa.js Docker", "badge": "Self-Hosted VPS", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-boutique-medusa", "stack": "Medusa.js v2 + PostgreSQL + Redis + Docker Compose" }
+    ],
+    "features": [
+      "Size Matrix (XS-XXL) with Zero-Backorder Guard",
+      "Step 3 Live Stock Scarcity Progress Bar",
+      "1-Tap In-Store Counter POS Register",
+      "Cashfree UPI Checkout + HMAC Webhook Security",
+      "BMAD <1% D1 Free-Tier Edge Caching"
+    ]
+  },
+  {
+    "id": "tpl-ecom-streetwear",
+    "code": "1.2",
+    "title": "Gen-Z Streetwear & Sneaker Drop Store",
+    "category": "E-Commerce",
+    "vibe": "Brutalist Dark Neon, Drop Countdown & Lookbook",
+    "status": "live",
+    "customerUrl": "https://tpl-ecom-streetwear.pages.dev/",
+    "adminUrl": "https://tpl-ecom-streetwear.pages.dev/admin.html",
+    "defaultBrand": "VORTEX ARCHIVE",
+    "defaultTagline": "LIMITED BATCH 04 // HEAVYWEIGHT 480GSM DROP LIVE NOW",
+    "defaultPrimary": "#CCFF00",
+    "defaultDark": "#09090B",
+    "defaultBg": "#09090B",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + POS", "status": "live", "repo": "Adithyan-b-raj/tpl-ecom-streetwear", "stack": "Cloudflare Pages + Hono + D1 Drop Queue" },
+      { "name": "WooCommerce", "label": "WooCommerce Blocksy", "badge": "WP Child Theme", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-streetwear", "stack": "WooCommerce + Drop Timer + Size Matrix Plugin" },
+      { "name": "Shopify", "label": "Shopify OS 2.0", "badge": "Liquid + JSON", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-streetwear", "stack": "Shopify OS 2.0 Lookbook & Countdown Sections" },
+      { "name": "Self-Hosted Docker", "label": "Medusa.js Docker", "badge": "Self-Hosted VPS", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-streetwear", "stack": "Medusa.js + Redis Drop Rate Limiter + Docker" }
+    ],
+    "features": [
+      "Live Limited-Edition Drop Countdown Timer",
+      "Interactive Shop-the-Look Hotspot Grid",
+      "Popup Store QR & Instant Counter POS",
+      "Size Waitlist & Restock WhatsApp Alerts"
+    ]
+  },
+  {
+    "id": "tpl-ecom-cosmetics",
+    "code": "1.3",
+    "title": "Luxury Cosmetics, Skincare & Perfume D2C",
+    "category": "E-Commerce",
+    "vibe": "Aesop / Glossier Botanical Sage & Editorial Serif",
+    "status": "live",
+    "customerUrl": "https://tpl-ecom-cosmetics.pages.dev/",
+    "adminUrl": "https://tpl-ecom-cosmetics.pages.dev/admin.html",
+    "defaultBrand": "AURA BOTANICA",
+    "defaultTagline": "Clinical Ayurvedic formulations crafted with cold-pressed Kerala botanicals.",
+    "defaultPrimary": "#4A5D4E",
+    "defaultDark": "#1C241E",
+    "defaultBg": "#F7F5F0",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + Quiz", "status": "live", "repo": "Adithyan-b-raj/tpl-ecom-cosmetics", "stack": "Cloudflare Pages + Hono + D1 Batch & Expiry Tracker" },
+      { "name": "WooCommerce", "label": "WooCommerce Blocksy", "badge": "WP Child Theme", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-cosmetics", "stack": "WooCommerce + Routine Bundle Builder Plugin" },
+      { "name": "Shopify", "label": "Shopify OS 2.0", "badge": "Liquid + JSON", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-cosmetics", "stack": "Shopify OS 2.0 Skin Quiz & Bundle Sections" },
+      { "name": "Self-Hosted Docker", "label": "Medusa.js Docker", "badge": "Self-Hosted VPS", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-cosmetics", "stack": "Medusa.js + Subscription & Batch Lot Engine" }
+    ],
+    "features": [
+      "3-Step Skin Type Quiz & Regimen Builder",
+      "Build-Your-Own 3-Piece Routine Bundle Discount",
+      "Ingredient Glossary & Clinical Efficacy Bars",
+      "Batch Lot & Shelf-Life Expiry Admin Tracker"
+    ]
+  },
+  {
+    "id": "tpl-ecom-quickcommerce",
+    "code": "1.4",
+    "title": "Hyperlocal Grocery, Meat & Cloud Kitchen Delivery",
+    "category": "E-Commerce",
+    "vibe": "Blinkit / Zepto High-Speed Sticky Category & Weight Picker",
+    "status": "live",
+    "customerUrl": "https://tpl-ecom-quickcommerce.pages.dev/",
+    "adminUrl": "https://tpl-ecom-quickcommerce.pages.dev/admin.html",
+    "defaultBrand": "FRESHCO EXPRESS",
+    "defaultTagline": "Farm-fresh fish, meat & organic groceries delivered in 25 minutes across Kochi.",
+    "defaultPrimary": "#16A34A",
+    "defaultDark": "#0F172A",
+    "defaultBg": "#F8FAFC",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + Rider", "status": "live", "repo": "Adithyan-b-raj/tpl-ecom-quickcommerce", "stack": "Cloudflare Pages + Hono + D1 Pincode & Slot Engine" },
+      { "name": "WooCommerce", "label": "WooCommerce Blocksy", "badge": "WP Child Theme", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-quickcommerce", "stack": "WooCommerce + Pincode Delivery Slot & Rider Dispatch" },
+      { "name": "Shopify", "label": "Shopify OS 2.0", "badge": "Liquid + JSON", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-quickcommerce", "stack": "Shopify OS 2.0 Quick-Add Weight Variant Matrix" },
+      { "name": "Self-Hosted Docker", "label": "Medusa.js Docker", "badge": "Self-Hosted VPS", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-quickcommerce", "stack": "Medusa.js + Hyperlocal Zone & Rider Dispatch Docker" }
+    ],
+    "features": [
+      "Instant Pincode Serviceability & Delivery Fee Check",
+      "250g / 500g / 1kg Weight & Cut Customizer",
+      "Live Kitchen / Packing Queue & Rider WhatsApp Dispatch",
+      "1-Tap Repeat Cart & Scheduled Morning Slot Picker"
+    ]
+  },
+  {
+    "id": "tpl-ecom-b2b-wholesale",
+    "code": "1.5",
+    "title": "B2B Wholesale, Hardware & Industrial Distributor",
+    "category": "E-Commerce",
+    "vibe": "High-Density SKU Matrix, Tiered MOQ Pricing & GST Quote PDF",
+    "status": "live",
+    "customerUrl": "https://tpl-ecom-b2b-wholesale.pages.dev/",
+    "adminUrl": "https://tpl-ecom-b2b-wholesale.pages.dev/admin.html",
+    "defaultBrand": "APEX INDUSTRIAL B2B",
+    "defaultTagline": "Direct factory bulk ordering with tiered MOQ pricing and instant GST proforma invoices.",
+    "defaultPrimary": "#2563EB",
+    "defaultDark": "#0F172A",
+    "defaultBg": "#F8FAFC",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + RFQ", "status": "live", "repo": "Adithyan-b-raj/tpl-ecom-b2b-wholesale", "stack": "Cloudflare Pages + Hono + D1 Tiered Slab & RFQ Engine" },
+      { "name": "WooCommerce", "label": "WooCommerce Blocksy", "badge": "WP Child Theme", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-b2b-wholesale", "stack": "WooCommerce + B2B Tiered MOQ & GST Proforma Plugin" },
+      { "name": "Shopify", "label": "Shopify OS 2.0", "badge": "Liquid + JSON", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-b2b-wholesale", "stack": "Shopify OS 2.0 Bulk Matrix Order Sheet" },
+      { "name": "Self-Hosted Docker", "label": "Medusa.js Docker", "badge": "Self-Hosted VPS", "status": "ready", "repo": "Adithyan-b-raj/tpl-ecom-b2b-wholesale", "stack": "Medusa.js B2B Customer Groups & Credit Ledger" }
+    ],
+    "features": [
+      "Spreadsheet-Speed Bulk SKU Quantity Entry Table",
+      "Dynamic Tiered Volume Slab Pricing (10+ / 50+ / 100+)",
+      "1-Click Printable GST Proforma Invoice / RFQ Generator",
+      "Dealer Credit Limit & Approval Admin Console"
+    ]
+  },
+  {
+    "id": "tpl-land-saas-bento",
+    "code": "2.1",
+    "title": "AI / SaaS Product Launch (Dark Bento + ROI Calculator)",
+    "category": "Landing Page",
+    "vibe": "Linear / Raycast Obsidian Glass, Spotlight Bento & Interactive ROI",
+    "status": "live",
+    "customerUrl": "https://tpl-land-saas-bento.pages.dev/",
+    "adminUrl": "https://tpl-land-saas-bento.pages.dev/admin.html",
+    "defaultBrand": "NEXUS AI CLOUD",
+    "defaultTagline": "Automate your entire back-office workflow with sub-50ms edge agents.",
+    "defaultPrimary": "#6366F1",
+    "defaultDark": "#09090B",
+    "defaultBg": "#09090B",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + Leads", "status": "live", "repo": "Adithyan-b-raj/tpl-land-saas-bento", "stack": "Cloudflare Pages + Hono + D1 Waitlist & Lead CRM" },
+      { "name": "WooCommerce", "label": "WordPress Blocksy", "badge": "WP Landing", "status": "ready", "repo": "Adithyan-b-raj/tpl-land-saas-bento", "stack": "WordPress Blocksy + Custom Bento & Lead Webhook" }
+    ],
+    "features": [
+      "Cursor-Tracking Radial Glow Bento Grid",
+      "Interactive Team Size & Hours-Saved ROI Calculator",
+      "Monthly / Annual Pricing Toggle with Cashfree/Stripe Link",
+      "Live Waitlist & Lead Pipeline Admin Kanban"
+    ]
+  },
+  {
+    "id": "tpl-land-realestate",
+    "code": "2.2",
+    "title": "Luxury Real Estate, Villa & Builder Project Launch",
+    "category": "Landing Page",
+    "vibe": "Architectural Champagne Gold, Interactive Floorplan & EMI Calculator",
+    "status": "live",
+    "customerUrl": "https://tpl-land-realestate.pages.dev/",
+    "adminUrl": "https://tpl-land-realestate.pages.dev/admin.html",
+    "defaultBrand": "AURUM ESTATES",
+    "defaultTagline": "Waterfront 4BHK Sky Villas in Marine Drive, Kochi. RERA Approved Luxury.",
+    "defaultPrimary": "#B4833E",
+    "defaultDark": "#141E19",
+    "defaultBg": "#FAF8F5",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + CRM", "status": "live", "repo": "Adithyan-b-raj/tpl-land-realestate", "stack": "Cloudflare Pages + Hono + D1 Site Visit & Unit Inventory" },
+      { "name": "WooCommerce", "label": "WordPress Blocksy", "badge": "WP Landing", "status": "ready", "repo": "Adithyan-b-raj/tpl-land-realestate", "stack": "WordPress Blocksy + Real Estate Unit Inventory Plugin" }
+    ],
+    "features": [
+      "Interactive 2BHK / 3BHK / 4BHK Villa Floorplan Switcher",
+      "Live Bank EMI & Downpayment Breakdown Calculator",
+      "Brochure Unlock Gate with Instant WhatsApp PDF Trigger",
+      "Site-Visit Booking Calendar & Unit Availability Admin"
+    ]
+  },
+  {
+    "id": "tpl-land-d2c-gadget",
+    "code": "2.3",
+    "title": "Single-Product D2C Hardware & Smart Gadget Launch",
+    "category": "Landing Page",
+    "vibe": "Apple / Teenage Engineering Precision Spec-Sheet & Pre-Order",
+    "status": "live",
+    "customerUrl": "https://tpl-land-d2c-gadget.pages.dev/",
+    "adminUrl": "https://tpl-land-d2c-gadget.pages.dev/admin.html",
+    "defaultBrand": "KINETIX AUDIO",
+    "defaultTagline": " Reference-grade planar magnetic wireless headphones with 80-hour graphene battery.",
+    "defaultPrimary": "#FF4F00",
+    "defaultDark": "#111111",
+    "defaultBg": "#F4F4F2",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + Preorder", "status": "live", "repo": "Adithyan-b-raj/tpl-land-d2c-gadget", "stack": "Cloudflare Pages + Hono + D1 Batch Pre-Order Checkout" },
+      { "name": "Shopify", "label": "Shopify OS 2.0", "badge": "Single-SKU Funnel", "status": "ready", "repo": "Adithyan-b-raj/tpl-land-d2c-gadget", "stack": "Shopify OS 2.0 Sticky Express Pre-Order Funnel" }
+    ],
+    "features": [
+      "Interactive Colorway & Acoustic Exploded Spec Switcher",
+      "Sticky 1-Page Express Pre-Order Checkout Drawer",
+      "Live Batch Production Quota Progress Tracker",
+      "Pre-Order Fulfillment & Serial Number Admin Hub"
+    ]
+  },
+  {
+    "id": "tpl-land-event-pass",
+    "code": "2.4",
+    "title": "Conference, Concert & Workshop Ticket + QR Pass",
+    "category": "Landing Page",
+    "vibe": "High-Energy Festival Gradient, Speaker Lineup & Instant QR Ticket",
+    "status": "live",
+    "customerUrl": "https://tpl-land-event-pass.pages.dev/",
+    "adminUrl": "https://tpl-land-event-pass.pages.dev/admin.html",
+    "defaultBrand": "KOCHI DESIGN SUMMIT",
+    "defaultTagline": "2 Days of Design, AI & Creative Engineering — Nov 14–15 at Grand Hyatt Bolgatty.",
+    "defaultPrimary": "#EC4899",
+    "defaultDark": "#090D16",
+    "defaultBg": "#090D16",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + QR Gate", "status": "live", "repo": "Adithyan-b-raj/tpl-land-event-pass", "stack": "Cloudflare Pages + Hono + D1 Signed QR Pass Check-In" },
+      { "name": "WooCommerce", "label": "WordPress Events", "badge": "WP Ticket Gate", "status": "ready", "repo": "Adithyan-b-raj/tpl-land-event-pass", "stack": "WordPress + QR Check-In Gate Plugin" }
+    ],
+    "features": [
+      "Multi-Track Agenda Filter & Speaker Spotlight Cards",
+      "Early-Bird / VIP / Group Pass Tier Checkout",
+      "Instant Downloadable QR E-Ticket Generator",
+      "Admin Gate Check-In Scanner & Live Attendance Counter"
+    ]
+  },
+  {
+    "id": "tpl-port-agency-awwwards",
+    "code": "3.1",
+    "title": "Creative Dev / Design Agency Awwwards Portfolio",
+    "category": "Portfolio",
+    "vibe": "Kinetic Typography, Case-Study Metrics & Interactive Scope Estimator",
+    "status": "live",
+    "customerUrl": "https://tpl-port-agency-awwwards.pages.dev/",
+    "adminUrl": "https://tpl-port-agency-awwwards.pages.dev/admin.html",
+    "defaultBrand": "STUDIO MONOLITH",
+    "defaultTagline": "Digital product studio crafting high-conversion commerce & edge software.",
+    "defaultPrimary": "#E11D48",
+    "defaultDark": "#0A0A0A",
+    "defaultBg": "#FAF9F6",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + Estimator", "status": "live", "repo": "Adithyan-b-raj/tpl-port-agency-awwwards", "stack": "Cloudflare Pages + Hono + D1 Project Quote CRM" }
+    ],
+    "features": [
+      "Interactive Case Study Filter with Live ROI Metrics",
+      "Interactive Project Scope & Budget Calculator",
+      "1-Click Proposal Brief Submission + WhatsApp Alert",
+      "Admin Client Brief & Retainer Pipeline Dashboard"
+    ]
+  },
+  {
+    "id": "tpl-port-photography",
+    "code": "3.2",
+    "title": "Wedding, Fashion & Commercial Photography + Client Proofing",
+    "category": "Portfolio",
+    "vibe": "Cinematic Masonry Lightbox, PIN-Protected Album Selection & Package Builder",
+    "status": "live",
+    "customerUrl": "https://tpl-port-photography.pages.dev/",
+    "adminUrl": "https://tpl-port-photography.pages.dev/admin.html",
+    "defaultBrand": "LUMEN STORIES",
+    "defaultTagline": "Editorial wedding & fine-art portrait photography across Kerala & destinations.",
+    "defaultPrimary": "#9A6B4C",
+    "defaultDark": "#181512",
+    "defaultBg": "#FCFBF9",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + Proofing", "status": "live", "repo": "Adithyan-b-raj/tpl-port-photography", "stack": "Cloudflare Pages + Hono + D1 Client Album Proofing" }
+    ],
+    "features": [
+      "PIN-Protected Client Photo Proofing & Heart Selection",
+      "Interactive Wedding Coverage & Album Package Estimator",
+      "Date Availability Checker & Booking Inquiry",
+      "Admin Client Gallery Manager & Selected Photos Export"
+    ]
+  },
+  {
+    "id": "tpl-port-architecture",
+    "code": "3.3",
+    "title": "Architecture, Interior Design & Turnkey Construction Studio",
+    "category": "Portfolio",
+    "vibe": "Before/After Renovation Slider, Sq.Ft Turnkey Cost Calculator & Material Board",
+    "status": "live",
+    "customerUrl": "https://tpl-port-architecture.pages.dev/",
+    "adminUrl": "https://tpl-port-architecture.pages.dev/admin.html",
+    "defaultBrand": "ATELIER VAASTU",
+    "defaultTagline": "Tropical modernist architecture & turnkey luxury interiors in South India.",
+    "defaultPrimary": "#8C5A3C",
+    "defaultDark": "#1E1B18",
+    "defaultBg": "#F7F4EF",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + BoQ Calc", "status": "live", "repo": "Adithyan-b-raj/tpl-port-architecture", "stack": "Cloudflare Pages + Hono + D1 SqFt Cost Estimator" }
+    ],
+    "features": [
+      "Interactive Before / After Space Transformation Slider",
+      "Sq.Ft × Finish Grade Turnkey Interior Budget Estimator",
+      "Project Timeline & Material Specification Showcase",
+      "Admin Site Consultation & Estimate Lead Tracker"
+    ]
+  },
+  {
+    "id": "tpl-serp-retail-pos-gst",
+    "code": "4.1",
+    "title": "Retail Barcode POS, GST Invoice & Khata Ledger",
+    "category": "Small ERP",
+    "vibe": "Keyboard-First Billing Register, 80mm Thermal Receipt & Customer Udhaar Khata",
+    "status": "live",
+    "customerUrl": "https://tpl-serp-retail-pos-gst.pages.dev/",
+    "adminUrl": "https://tpl-serp-retail-pos-gst.pages.dev/admin.html",
+    "defaultBrand": "METRO SUPERMART POS",
+    "defaultTagline": "Fast barcode billing, CGST/SGST thermal invoices & digital customer khata.",
+    "defaultPrimary": "#0284C7",
+    "defaultDark": "#0F172A",
+    "defaultBg": "#F8FAFC",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + Thermal", "status": "live", "repo": "Adithyan-b-raj/tpl-serp-retail-pos-gst", "stack": "Cloudflare Pages + Hono + D1 Atomic POS & Khata" },
+      { "name": "WooCommerce", "label": "WP Operations Plugin", "badge": "WP POS Mode", "status": "ready", "repo": "Adithyan-b-raj/tpl-serp-retail-pos-gst", "stack": "WordPress + WooCommerce Counter POS & GST Receipt" },
+      { "name": "Self-Hosted Docker", "label": "Akaunting + Docker", "badge": "Self-Hosted VPS", "status": "ready", "repo": "Adithyan-b-raj/tpl-serp-retail-pos-gst", "stack": "Akaunting / Node SQLite Docker Compose" }
+    ],
+    "features": [
+      "Barcode / SKU Fast Search & Keyboard Shortcut Billing",
+      "CGST + SGST Split Calculation & 80mm Thermal Print View",
+      "Split Tender (Cash + UPI + Customer Khata Credit)",
+      "Customer Digital Invoice Portal & WhatsApp Bill Share"
+    ]
+  },
+  {
+    "id": "tpl-serp-clinic-salon-crm",
+    "code": "4.2",
+    "title": "Clinic, Dental & Salon Appointment, Token Queue & Billing",
+    "category": "Small ERP",
+    "vibe": "Clean Medical/Spa Teal, Live Waiting Token TV Board & Chair/Doctor Roster",
+    "status": "live",
+    "customerUrl": "https://tpl-serp-clinic-salon-crm.pages.dev/",
+    "adminUrl": "https://tpl-serp-clinic-salon-crm.pages.dev/admin.html",
+    "defaultBrand": "ASTERIA SKIN & DENTAL",
+    "defaultTagline": "Book specialist consultations & track your live clinic token from your phone.",
+    "defaultPrimary": "#0D9488",
+    "defaultDark": "#134E4A",
+    "defaultBg": "#F0FDFA",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + Queue", "status": "live", "repo": "Adithyan-b-raj/tpl-serp-clinic-salon-crm", "stack": "Cloudflare Pages + Hono + D1 Token Queue & EMR" },
+      { "name": "Self-Hosted Docker", "label": "Cal.com + Directus Docker", "badge": "Self-Hosted VPS", "status": "ready", "repo": "Adithyan-b-raj/tpl-serp-clinic-salon-crm", "stack": "Docker Compose Clinic Booking & Patient CRM" }
+    ],
+    "features": [
+      "Patient / Client Self-Booking by Doctor or Stylist Slot",
+      "Live Waiting Room Token Number Status Tracker",
+      "Receptionist Token Caller, Case Notes & Prescription Print",
+      "Automated WhatsApp Appointment & Follow-Up Reminder"
+    ]
+  },
+  {
+    "id": "tpl-serp-cafe-qrmenu-kot",
+    "code": "4.3",
+    "title": "Cafe & Restaurant Table QR Menu, Live KOT & Cashier POS",
+    "category": "Small ERP",
+    "vibe": "Warm Bistro Amber, Table-Scoped Mobile Ordering & Kitchen Display System",
+    "status": "live",
+    "customerUrl": "https://tpl-serp-cafe-qrmenu-kot.pages.dev/",
+    "adminUrl": "https://tpl-serp-cafe-qrmenu-kot.pages.dev/admin.html",
+    "defaultBrand": "ROAST & CO. BISTRO",
+    "defaultTagline": "Scan table QR to order specialty pour-overs, wood-fired sourdough & desserts.",
+    "defaultPrimary": "#D97706",
+    "defaultDark": "#1C1917",
+    "defaultBg": "#FFFBEB",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + KDS", "status": "live", "repo": "Adithyan-b-raj/tpl-serp-cafe-qrmenu-kot", "stack": "Cloudflare Pages + Hono + D1 Table QR & Live KOT" },
+      { "name": "Self-Hosted Docker", "label": "TastyIgniter Docker", "badge": "Self-Hosted VPS", "status": "ready", "repo": "Adithyan-b-raj/tpl-serp-cafe-qrmenu-kot", "stack": "Docker Compose Restaurant POS & Kitchen Display" }
+    ],
+    "features": [
+      "Zero-Install Table QR Menu (`?table=4`) with Modifiers",
+      "Live Kitchen Order Ticket (KOT) Board with Audio Ding",
+      "Table Occupancy Map (Free / Seated / Bill Requested)",
+      "Split-Bill & UPI QR Table Settlement"
+    ]
+  },
+  {
+    "id": "tpl-serp-repair-tracker",
+    "code": "4.4",
+    "title": "Mobile, Laptop & EV Service Center Job-Sheet Tracker",
+    "category": "Small ERP",
+    "vibe": "Industrial Slate & Cobalt, Live IMEI/Serial Repair Tracker & Technician Bench",
+    "status": "live",
+    "customerUrl": "https://tpl-serp-repair-tracker.pages.dev/",
+    "adminUrl": "https://tpl-serp-repair-tracker.pages.dev/admin.html",
+    "defaultBrand": "ICARE PRO LABS",
+    "defaultTagline": "Chip-level Apple, laptop & EV diagnostics with live job-sheet status tracking.",
+    "defaultPrimary": "#2563EB",
+    "defaultDark": "#0F172A",
+    "defaultBg": "#F8FAFC",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + Job Card", "status": "live", "repo": "Adithyan-b-raj/tpl-serp-repair-tracker", "stack": "Cloudflare Pages + Hono + D1 Job Ticket & Parts Ledger" },
+      { "name": "Self-Hosted Docker", "label": "Directus Service Docker", "badge": "Self-Hosted VPS", "status": "ready", "repo": "Adithyan-b-raj/tpl-serp-repair-tracker", "stack": "Docker Compose Service Center ERP" }
+    ],
+    "features": [
+      "Customer Live Job-Ticket Status Lookup + Estimate Approval",
+      "Device Intake Checklist (IMEI/Serial, Passcode, Scratches)",
+      "Spare Parts Consumed + Labor Cost Margin Calculator",
+      "1-Click 'Ready for Pickup' WhatsApp Invoice Trigger"
+    ]
+  },
+  {
+    "id": "tpl-lerp-warehouse-erp",
+    "code": "5.1",
+    "title": "Multi-Branch Inventory, Purchase Order & B2B Dealer ERP",
+    "category": "Large ERP",
+    "vibe": "Enterprise Multi-Location Stock Ledger, GRN Workflow & Dealer Self-Service Portal",
+    "status": "live",
+    "customerUrl": "https://tpl-lerp-warehouse-erp.pages.dev/",
+    "adminUrl": "https://tpl-lerp-warehouse-erp.pages.dev/admin.html",
+    "defaultBrand": "NEXUS SUPPLY ERP",
+    "defaultTagline": "Multi-warehouse stock transfers, vendor PO -> GRN matching & dealer B2B portal.",
+    "defaultPrimary": "#4F46E5",
+    "defaultDark": "#0F172A",
+    "defaultBg": "#F8FAFC",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + Multi-Branch", "status": "live", "repo": "Adithyan-b-raj/tpl-lerp-warehouse-erp", "stack": "Cloudflare Pages + Hono + D1 Double-Entry Stock Ledger" },
+      { "name": "Self-Hosted Docker", "label": "ERPNext v15 / Odoo 17 Docker", "badge": "Enterprise VPS", "status": "live", "repo": "Adithyan-b-raj/tpl-lerp-warehouse-erp", "stack": "Frappe ERPNext v15 + Odoo 17 Community Docker Compose" }
+    ],
+    "features": [
+      "Multi-Warehouse Stock Ledger (Main Hub, Kochi, Calicut)",
+      "Purchase Requisition -> PO -> Goods Receipt Note (GRN)",
+      "Inter-Branch Stock Transfer with In-Transit Tracking",
+      "B2B Dealer Self-Service Ordering & Statement Portal"
+    ]
+  },
+  {
+    "id": "tpl-lerp-hrms-payroll",
+    "code": "5.2",
+    "title": "Enterprise HRMS, Geo-Attendance, Leave & Payroll Suite",
+    "category": "Large ERP",
+    "vibe": "Employee Self-Service Check-In/Payslip Portal + HR Payroll & Expense Run Engine",
+    "status": "live",
+    "customerUrl": "https://tpl-lerp-hrms-payroll.pages.dev/",
+    "adminUrl": "https://tpl-lerp-hrms-payroll.pages.dev/admin.html",
+    "defaultBrand": "PEOPLEPULSE HRMS",
+    "defaultTagline": "Employee shift attendance, leave approvals, expense claims & 1-click PF/ESI payroll.",
+    "defaultPrimary": "#7C3AED",
+    "defaultDark": "#1E1B4B",
+    "defaultBg": "#F8FAFC",
+    "defaultWa": "919061902295",
+    "tracks": [
+      { "name": "Cloudflare Edge", "label": "Cloudflare Edge ($0/mo)", "badge": "Edge D1 + Payslips", "status": "live", "repo": "Adithyan-b-raj/tpl-lerp-hrms-payroll", "stack": "Cloudflare Pages + Hono + D1 Attendance & Payroll Engine" },
+      { "name": "Self-Hosted Docker", "label": "Frappe HR Docker", "badge": "Enterprise VPS", "status": "live", "repo": "Adithyan-b-raj/tpl-lerp-hrms-payroll", "stack": "Frappe HR + ERPNext Payroll Docker Compose" }
+    ],
+    "features": [
+      "Employee Self-Service Shift Punch-In & Leave Request Portal",
+      "Downloadable Monthly Salary Slip with PF / ESI / TDS Breakdown",
+      "HR Admin Attendance Matrix, Leave Approval & Expense Claims",
+      "1-Click Monthly Payroll Run & Bank NEFT CSV Export"
+    ]
+  }
+]
